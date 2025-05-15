@@ -97,8 +97,7 @@ Contribuições são bem-vindas! Se você deseja ajudar, envie um pull request o
 
 Caso queira entrar em contato:
 
-- Email: contato@impulsovida.org *(exemplo)*  
-- Instagram: [@impulsovida](https://instagram.com/impulsovida) *(exemplo)*
+- Email: italos.2007@gmail.com
 
 ---
 
