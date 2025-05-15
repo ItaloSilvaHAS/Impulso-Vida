@@ -97,7 +97,7 @@ Contribuições são bem-vindas! Se você deseja ajudar, envie um pull request o
 
 Caso queira entrar em contato:
 
-- Email: italos.2007@gmail.com
+- Email: italo.ss2007@gmail.com
 
 ---
 
