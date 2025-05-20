@@ -2,320 +2,1316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impulso Vida - Tela Principal</title>
+  <title>Impulso Vida - Apoio Profissional para Pessoas com Deficiência</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
   <style>
-    body {
-      font-family: "Inter", sans-serif;
+    /* Custom scrollbar for chat */
+    #chatMessages {
+      scrollbar-width: thin;
+      scrollbar-color: #a0aec0 #edf2f7;
+    }
+    #chatMessages::-webkit-scrollbar {
+      width: 8px;
+    }
+    #chatMessages::-webkit-scrollbar-track {
+      background: #edf2f7;
+    }
+    #chatMessages::-webkit-scrollbar-thumb {
+      background-color: #a0aec0;
+      border-radius: 4px;
+    }
+    /* Dark mode overrides */
+    .dark body {
       background-color: #121212;
       color: #e0e0e0;
-      min-height: 100vh;
-      margin: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid #3b82f6;
-      outline-offset: 2px;
-    }
-    header {
+    .dark nav {
       background-color: #1f2937;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.7);
+    }
+    .dark header,
+    .dark section,
+    .dark footer {
+      background-color: #1f2937;
+      color: #e0e0e0;
       box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
     }
-    nav a {
-      position: relative;
-      transition: color 0.25s ease;
-      font-weight: 600;
-      color: #cbd5e1;
+    .dark a:hover {
+      color: #4ade80 !important;
     }
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #3b82f6;
-      transition: width 0.25s ease;
-      border-radius: 2px;
+    .dark button,
+    .dark select,
+    .dark input,
+    .dark textarea {
+      background-color: #374151;
+      color: #e0e0e0;
+      border-color: #4ade80;
     }
-    nav a:hover,
-    nav a:focus-visible {
-      color: #3b82f6;
+    .dark button:hover {
+      background-color: #22c55e !important;
+      color: #121212 !important;
     }
-    nav a:hover::after,
-    nav a:focus-visible::after {
-      width: 100%;
+    .dark details[open] {
+      background-color: #374151;
+      border-color: #4ade80;
     }
-    .btn-primary {
-      background-color: #3b82f6;
+    .dark details summary {
+      color: #4ade80;
+    }
+    .dark table {
+      background-color: #1f2937;
+      color: #e0e0e0;
+    }
+    .dark thead {
+      background-color: #22c55e;
       color: #121212;
-      font-weight: 700;
-      padding: 0.75rem 2rem;
-      border-radius: 0.375rem;
-      box-shadow: 0 4px 12px rgb(59 130 246 / 0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease,
-        transform 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      user-select: none;
-      border: none;
-      cursor: pointer;
     }
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background-color: #2563eb;
-      box-shadow: 0 6px 18px rgb(37 99 235 / 0.8);
-      outline-offset: 3px;
-      transform: translateY(-2px);
+    .dark tbody tr:hover {
+      background-color: #374151;
     }
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: 0 3px 10px rgb(37 99 235 / 0.7);
+    .dark .bg-green-50 {
+      background-color: #1f2937 !important;
     }
-    @keyframes floatSubtle {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+    .dark .bg-white {
+      background-color: #1f2937 !important;
     }
-    .float-subtle {
-      animation: floatSubtle 6s ease-in-out infinite;
+    .dark .text-green-900 {
+      color: #4ade80 !important;
     }
-    #mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      background: #1f2937;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 0.7);
-      border-radius: 0 0 0.5rem 0.5rem;
+    .dark .text-green-800 {
+      color: #22c55e !important;
     }
-    #mobile-menu.open {
-      max-height: 300px;
+    .dark .border-green-700 {
+      border-color: #22c55e !important;
+    }
+    .dark .bg-green-800 {
+      background-color: #22c55e !important;
+    }
+    .dark .bg-green-900 {
+      background-color: #16a34a !important;
+    }
+    .dark .text-red-600 {
+      color: #f87171 !important;
+    }
+    .dark .text-red-700 {
+      color: #ef4444 !important;
+    }
+    .dark .text-gray-700 {
+      color: #d1d5db !important;
+    }
+    .dark .text-gray-800 {
+      color: #d1d5db !important;
+    }
+    .dark .text-gray-900 {
+      color: #d1d5db !important;
+    }
+    .dark .border-gray-300 {
+      border-color: #4ade80 !important;
+    }
+    .dark .border-gray-700 {
+      border-color: #22c55e !important;
+    }
+    .dark .bg-gray-50 {
+      background-color: #121212 !important;
+    }
+    .dark .bg-gray-100 {
+      background-color: #1f2937 !important;
+    }
+    .dark .bg-gray-200 {
+      background-color: #374151 !important;
+    }
+    .dark .bg-gray-300 {
+      background-color: #4b5563 !important;
+    }
+    .dark .hover\:bg-gray-400:hover {
+      background-color: #22c55e !important;
+      color: #121212 !important;
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:py-5">
-      <a
-        aria-label="Impulso Vida - Página Inicial"
-        class="flex items-center gap-3 text-white font-extrabold text-2xl select-none"
-        href="#home"
-      >
-        <img
-          alt="Logotipo estilizado com letras IV em azul e verde"
-          class="w-12 h-12 rounded-full shadow-sm"
-          height="48"
-          loading="lazy"
-          src="https://storage.googleapis.com/a1aa/image/522d342b-abc3-493b-0ad8-845a38a057c1.jpg"
-          width="48"
-        />
-        Impulso Vida
-      </a>
-      <nav
-        aria-label="Menu principal"
-        class="hidden md:flex gap-10 font-semibold text-white text-lg"
-      >
-        <a href="#sobre" tabindex="0">Sobre</a>
-        <a href="#contato" tabindex="0">Contato</a>
-        <a href="#assistente" tabindex="0">Assistente IA</a>
-        <a href="#conteudo" tabindex="0">Conteúdo</a>
-      </nav>
-      <button
-        id="btn-mobile-menu"
-        aria-label="Abrir menu"
-        aria-expanded="false"
-        class="md:hidden text-white hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"
-      >
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
-    </div>
-    <nav
-      id="mobile-menu"
-      aria-label="Menu móvel"
-      class="md:hidden max-w-7xl mx-auto px-6 overflow-hidden"
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col transition-colors duration-500">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md transition-colors duration-500">
+    <div
+      class="container mx-auto px-6 md:px-8 py-5 flex flex-wrap items-center justify-between"
     >
-      <a
-        href="#sobre"
-        class="block py-4 text-white font-semibold border-b border-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:outline-none"
-        tabindex="0"
-        >Sobre</a
-      >
-      <a
-        href="#contato"
-        class="block py-4 text-white font-semibold border-b border-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:outline-none"
-        tabindex="0"
-        >Contato</a
-      >
-      <a
-        href="#assistente"
-        class="block py-4 text-white font-semibold border-b border-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:outline-none"
-        tabindex="0"
-        >Assistente IA</a
-      >
-      <a
-        href="#conteudo"
-        class="block py-4 text-white font-semibold hover:bg-blue-800 focus:bg-blue-800 focus:outline-none"
-        tabindex="0"
-        >Conteúdo</a
-      >
-    </nav>
+      <a href="#" class="flex items-center space-x-3 select-none">
+        <img
+          src="https://storage.googleapis.com/a1aa/image/3807c2e2-0916-4e64-13ef-0a16cea35730.jpg"
+          alt="Logo Impulso Vida: desenho preto e branco de árvore dentro de círculo"
+          class="w-14 h-14 object-contain"
+        />
+        <span
+          class="text-2xl font-extrabold text-green-900 dark:text-green-400 tracking-wide"
+          >Impulso Vida</span
+        >
+      </a>
+      <div class="space-x-8 text-gray-700 dark:text-green-300 font-semibold text-lg flex items-center">
+        <a
+          href="#home"
+          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
+          >Início</a
+        >
+        <a
+          href="#sobre"
+          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
+          >Sobre</a
+        >
+        <a
+          href="#faq"
+          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
+          >FAQ</a
+        >
+        <a
+          href="#login"
+          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
+          >Login / Cadastro</a
+        >
+        <button
+          id="btnToggleDark"
+          aria-label="Alternar modo escuro"
+          title="Alternar modo escuro"
+          class="ml-4 p-2 rounded-md border border-green-700 dark:border-green-400 text-green-700 dark:text-green-400 hover:bg-green-700 hover:text-white dark:hover:bg-green-400 dark:hover:text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header
+    id="home"
+    class="bg-white dark:bg-gray-900 shadow-lg py-16 flex flex-col items-center text-center px-6 md:px-0 transition-colors duration-500"
+  >
+    <h1
+      class="text-5xl md:text-6xl font-extrabold text-green-900 dark:text-green-400 max-w-4xl leading-tight mb-6"
+    >
+      Impulso Vida: Apoio Profissional e Humanizado para Pessoas com Deficiência
+    </h1>
+    <p class="max-w-3xl text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+      Somos uma empresa dedicada a transformar vidas, oferecendo suporte
+      especializado para pessoas com deficiências severas e baixa renda. Nosso
+      compromisso é garantir dignidade, autonomia e qualidade de vida por meio
+      de serviços personalizados e uma equipe comprometida.
+    </p>
   </header>
 
-  <main
-    id="home"
-    class="pt-24 max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 flex flex-col items-center min-h-[calc(100vh-6rem)]"
+  <!-- About Section -->
+  <section
+    id="sobre"
+    class="container mx-auto max-w-6xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-10 py-12 transition-colors duration-500"
   >
-    <section
-      class="flex flex-col md:flex-row items-center w-full gap-12 max-w-5xl"
-      style="min-height: 480px"
-    >
-      <div class="flex-1 text-left space-y-8">
-        <h1
-          class="text-5xl font-extrabold leading-tight tracking-tight text-white"
-        >
-          Impulso Vida
-        </h1>
-        <p class="text-lg text-blue-300 font-medium leading-relaxed max-w-lg">
-          Um espaço de acolhimento, orientação e acesso à informação para
-          pessoas com deficiência e populações de baixa renda.
+    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2">
+      Sobre a Impulso Vida
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          A Impulso Vida nasceu da necessidade urgente de oferecer um suporte
+          qualificado e humano para pessoas com deficiências severas, que
+          muitas vezes enfrentam barreiras para acessar serviços essenciais.
+          Nosso projeto visa não apenas prover ajuda prática, como limpeza,
+          compras e auxílio no transporte de peso, mas também criar uma rede de
+          acolhimento e empoderamento.
         </p>
-        <a
-          class="btn-primary inline-flex items-center gap-3 shadow-md"
-          href="#assistente"
-          role="button"
-          tabindex="0"
-        >
-          <i class="fas fa-robot text-xl"></i>
-          Converse com a Assistente IA
-        </a>
+        <p class="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
+          Para garantir que os benefícios sejam direcionados a quem realmente
+          necessita, implementamos um sistema rigoroso de confirmação médica,
+          onde cada usuário deve realizar um exame conosco para validar sua
+          condição e ter acesso aos serviços exclusivos.
+        </p>
       </div>
-      <div class="flex-1 max-w-md relative">
-        <img
-          src="https://storage.googleapis.com/a1aa/image/dd46981c-5181-44db-f6a3-f6e17ee96805.jpg"
-          alt="Pessoas diversas com deficiência e baixa renda sorrindo e interagindo em um ambiente acolhedor, com cores neutras e ambiente profissional"
-          class="rounded-lg shadow-lg float-subtle w-full h-auto object-cover"
-          decoding="async"
-          fetchpriority="high"
-          height="400"
-          loading="lazy"
-          width="400"
+      <div class="space-y-10">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/73da88bf-2ea7-45a1-84b0-7e5ae545e742.jpg"
+            alt="Foto profissional do CEO Caio, homem sorridente, fundo neutro"
+            class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0"
+          />
+          <div>
+            <h3 class="text-xl md:text-2xl font-semibold text-green-900 dark:text-green-400">
+              Caio
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 italic text-base md:text-lg leading-relaxed max-w-xl">
+              CEO e visionário, Caio lidera a Impulso Vida com foco em inovação
+              e responsabilidade social. Ele acredita que a tecnologia e o
+              cuidado humano podem caminhar juntos para transformar realidades,
+              promovendo inclusão e qualidade de vida para todos.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/8e5801c4-bc39-4c73-0cc4-81c9661ccd9f.jpg"
+            alt="Foto profissional do Co-CEO Gustavo, homem sorridente, fundo neutro"
+            class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0"
+          />
+          <div>
+            <h3 class="text-xl md:text-2xl font-semibold text-green-900 dark:text-green-400">
+              Gustavo
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 italic text-base md:text-lg leading-relaxed max-w-xl">
+              Co-CEO e fundador, Gustavo traz mais de 15 anos de experiência em
+              gestão social, gestão de finanças e projetos de inclusão.
+              Sua paixão é criar soluções práticas que impactem positivamente a
+              vida das pessoas, garantindo sustentabilidade e eficiência.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section
+    id="faq"
+    class="container mx-auto max-w-4xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-8 py-12 transition-colors duration-500"
+  >
+    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2">
+      Perguntas Frequentes (FAQ)
+    </h2>
+    <div class="space-y-4">
+      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
+        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
+          Quem pode solicitar ajuda na Impulso Vida?
+        </summary>
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+          Nosso serviço é exclusivo para pessoas com deficiências severas
+          devidamente confirmadas por exame realizado em nossa empresa. Também
+          priorizamos pessoas de baixa renda para garantir que o auxílio chegue
+          a quem mais precisa.
+        </p>
+      </details>
+      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
+        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
+          Quais tipos de ajuda são oferecidos?
+        </summary>
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+          Oferecemos auxílio em tarefas como limpeza da casa, ajuda nas compras,
+          transporte de peso e outras necessidades gerais que facilitem o dia a
+          dia dos nossos usuários.
+        </p>
+      </details>
+      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
+        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
+          Como funciona o sistema de confirmação da deficiência?
+        </summary>
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+          Para garantir a seriedade e a justiça no acesso aos benefícios, cada
+          usuário deve agendar um exame conosco. Após a confirmação médica, o
+          usuário terá acesso completo aos serviços especiais.
+        </p>
+      </details>
+      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
+        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
+          Quem são os responsáveis pela empresa?
+        </summary>
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+          A Impulso Vida é liderada por Gustavo (Co-CEO), Caio (CEO)
+          que possuem vasta experiência em gestão social, finanças e inovação para inclusão.
+        </p>
+      </details>
+      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
+        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
+          Como posso me cadastrar e acessar os serviços?
+        </summary>
+        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
+          Você pode criar uma conta na aba de Login/Cadastro. Após o cadastro,
+          será necessário agendar o exame para confirmação da deficiência e,
+          então, poderá solicitar ajuda e acessar todos os recursos.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Login / Register Section -->
+  <section
+    id="login"
+    class="container mx-auto max-w-3xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-10 py-12 mb-16 transition-colors duration-500"
+  >
+    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2 text-center">
+      Acesso ao Sistema
+    </h2>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
+      <button
+        id="btnLogin"
+        class="px-10 py-3 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
+      >
+        Entrar
+      </button>
+      <button
+        id="btnRegister"
+        class="px-10 py-3 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md font-semibold shadow-md hover:bg-gray-400 dark:hover:bg-gray-600 transition focus:outline-none focus:ring-2 focus:ring-gray-400"
+      >
+        Cadastrar
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" autocomplete="off" class="space-y-6 max-w-md mx-auto">
+      <div>
+        <label
+          for="loginEmail"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="loginEmail"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
         />
       </div>
-    </section>
+      <div>
+        <label
+          for="loginPassword"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Senha</label
+        >
+        <input
+          type="password"
+          id="loginPassword"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
+      >
+        Entrar
+      </button>
+    </form>
 
-    <section
-      aria-label="Navegação por abas principais"
-      class="relative mt-20 w-full max-w-4xl flex justify-between items-center"
+    <!-- Register Form -->
+    <form
+      id="registerForm"
+      autocomplete="off"
+      class="space-y-6 max-w-md mx-auto hidden"
     >
-      <a
-        class="group flex flex-col items-center gap-2 w-24 cursor-pointer focus:outline-none"
-        href="#sobre"
-        tabindex="0"
+      <div>
+        <label
+          for="registerName"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Nome Completo</label
+        >
+        <input
+          type="text"
+          id="registerName"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+        />
+      </div>
+      <div>
+        <label
+          for="registerEmail"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="registerEmail"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+        />
+      </div>
+      <div>
+        <label
+          for="registerPassword"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Senha</label
+        >
+        <input
+          type="password"
+          id="registerPassword"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+        />
+      </div>
+      <div>
+        <label
+          for="deficiencyType"
+          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+          >Tipo de Deficiência</label
+        >
+        <select
+          id="deficiencyType"
+          required
+          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+        >
+          <option value="" disabled selected>Selecione</option>
+          <option value="fisica">Física (deficiência pesada)</option>
+          <option value="visual">Visual (deficiência pesada)</option>
+          <option value="auditiva">Auditiva (deficiência pesada)</option>
+          <option value="multipla">Múltipla (deficiência pesada)</option>
+          <option value="outra">Outra (deficiência pesada)</option>
+        </select>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          Para receber benefícios, é necessário marcar exame para confirmação da deficiência.
+        </p>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
       >
-        <div
-          aria-hidden="true"
-          class="w-16 h-16 rounded-full bg-gray-800 border border-gray-700 shadow-sm flex items-center justify-center transition group-hover:border-blue-500 group-focus-visible:border-blue-500"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-info-circle text-blue-500 text-3xl"
-          ></i>
-        </div>
-        <span
-          class="text-white font-semibold text-sm text-center select-none group-hover:text-blue-500 group-focus-visible:text-blue-500"
-          >Sobre</span
-        >
-      </a>
-      <a
-        class="group flex flex-col items-center gap-2 w-24 cursor-pointer focus:outline-none"
-        href="#contato"
-        tabindex="0"
+        Cadastrar
+      </button>
+    </form>
+
+    <p
+      id="formMessage"
+      class="mt-6 text-center font-semibold text-red-600 dark:text-red-400"
+      aria-live="polite"
+    ></p>
+  </section>
+
+  <!-- Logged in Dashboard -->
+  <section
+    id="dashboard"
+    class="container mx-auto max-w-7xl bg-white dark:bg-gray-900 rounded-lg shadow-lg px-6 md:px-12 py-10 mb-16 hidden transition-colors duration-500"
+  >
+    <div class="flex flex-col md:flex-row md:space-x-12">
+      <!-- Sidebar -->
+      <aside
+        class="md:w-1/4 bg-green-50 dark:bg-gray-800 rounded-lg p-6 shadow-inner sticky top-20 self-start transition-colors duration-500"
       >
-        <div
-          aria-hidden="true"
-          class="w-16 h-16 rounded-full bg-gray-800 border border-gray-700 shadow-sm flex items-center justify-center transition group-hover:border-blue-500 group-focus-visible:border-blue-500"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-envelope text-blue-500 text-3xl"
-          ></i>
-        </div>
-        <span
-          class="text-white font-semibold text-sm text-center select-none group-hover:text-blue-500 group-focus-visible:text-blue-500"
-          >Contato</span
-        >
-      </a>
-      <a
-        class="group flex flex-col items-center gap-2 w-24 cursor-pointer focus:outline-none"
-        href="#assistente"
-        tabindex="0"
-      >
-        <div
-          aria-hidden="true"
-          class="w-16 h-16 rounded-full bg-gray-800 border border-gray-700 shadow-sm flex items-center justify-center transition group-hover:border-blue-500 group-focus-visible:border-blue-500"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-robot text-blue-500 text-3xl"
-          ></i>
-        </div>
-        <span
-          class="text-white font-semibold text-sm text-center select-none group-hover:text-blue-500 group-focus-visible:text-blue-500"
-          >Assistente IA</span
-        >
-      </a>
-      <a
-        class="group flex flex-col items-center gap-2 w-24 cursor-pointer focus:outline-none"
-        href="#conteudo"
-        tabindex="0"
-      >
-        <div
-          aria-hidden="true"
-          class="w-16 h-16 rounded-full bg-gray-800 border border-gray-700 shadow-sm flex items-center justify-center transition group-hover:border-blue-500 group-focus-visible:border-blue-500"
-        >
-          <i
-            aria-hidden="true"
-            class="fas fa-book-open text-blue-500 text-3xl"
-          ></i>
-        </div>
-        <span
-          class="text-white font-semibold text-sm text-center select-none group-hover:text-blue-500 group-focus-visible:text-blue-500"
-          >Conteúdo</span
-        >
-      </a>
-    </section>
-  </main>
+        <h3 class="text-xl font-bold text-green-900 dark:text-green-400 mb-8 border-b border-green-700 dark:border-green-400 pb-2">
+          Menu
+        </h3>
+        <nav class="flex flex-col space-y-6 text-green-900 dark:text-green-400 font-semibold text-lg">
+          <button
+            id="btnProfile"
+            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded"
+          >
+            Meu Perfil
+          </button>
+          <button
+            id="btnHelpRequest"
+            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden"
+          >
+            Solicitar Ajuda
+          </button>
+          <button
+            id="btnFAQChat"
+            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded"
+          >
+            Dúvidas Frequentes (IA)
+          </button>
+          <button
+            id="btnAdminPanel"
+            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden"
+          >
+            Painel Administrativo
+          </button>
+          <button
+            id="btnLogout"
+            class="text-left text-red-700 dark:text-red-500 font-bold hover:text-red-900 dark:hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 dark:focus:ring-red-500 rounded"
+          >
+            Sair
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="md:flex-1 bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md min-h-[480px] transition-colors duration-500 flex flex-col">
+        <!-- Profile Section -->
+        <section id="profileSection" class="space-y-6">
+          <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2">
+            Meu Perfil
+          </h2>
+          <div class="max-w-lg space-y-4">
+            <p><span class="font-semibold">Nome:</span> <span id="profileName"></span></p>
+            <p><span class="font-semibold">Email:</span> <span id="profileEmail"></span></p>
+            <p><span class="font-semibold">Tipo de Deficiência:</span> <span id="profileDeficiency"></span></p>
+            <p>
+              <span class="font-semibold">Grau de Preocupação:</span>
+              <span id="profileConcern" class="inline-flex items-center font-semibold px-3 py-1 rounded-full text-white"></span>
+            </p>
+            <div>
+              <p class="font-semibold mb-1">Agendar Exame para Confirmação</p>
+              <button id="btnScheduleExam" class="bg-green-800 text-white px-6 py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+                Marcar Exame
+              </button>
+              <p id="examMessage" class="mt-2 text-sm font-medium"></p>
+            </div>
+            <div class="mt-6 p-4 bg-yellow-100 dark:bg-yellow-700 rounded-md border border-yellow-300 dark:border-yellow-600">
+              <h3 class="font-semibold mb-2 text-yellow-800 dark:text-yellow-200">Disclaimer - Grau de Preocupação</h3>
+              <p class="text-yellow-800 dark:text-yellow-200 text-sm leading-relaxed">
+                Após a realização do exame, a equipe médica avaliará o grau de preocupação com base na condição do paciente:
+              </p>
+              <ul class="list-disc list-inside mt-2 text-yellow-800 dark:text-yellow-200 text-sm">
+                <li><span class="font-semibold">Amarelo:</span> Condição estável, acesso aos benefícios liberado.</li>
+                <li><span class="font-semibold">Laranja:</span> Condição mediana, acompanhamento recomendado.</li>
+                <li><span class="font-semibold">Vermelho:</span> Condição grave, prioridade máxima no atendimento.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Help Request -->
+        <section id="helpRequestSection" class="space-y-6 hidden flex-grow overflow-auto">
+          <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2">
+            Solicitação de Ajuda
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            Utilize este formulário para solicitar auxílio em tarefas essenciais
+            como limpeza, compras, transporte de peso e outras necessidades
+            específicas. Este serviço é exclusivo para pessoas com deficiências
+            severas confirmadas.
+          </p>
+          <form id="helpRequestForm" class="max-w-lg space-y-6">
+            <div>
+              <label
+                for="helpType"
+                class="block font-semibold text-gray-800 dark:text-gray-300 mb-2"
+                >Tipo de Ajuda</label
+              >
+              <select
+                id="helpType"
+                required
+                class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+              >
+                <option value="" disabled selected>Selecione</option>
+                <option value="limpeza">Limpar a casa</option>
+                <option value="compras">Ajudar nas compras</option>
+                <option value="peso">Ajudar com peso</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div>
+              <label
+                for="helpDescription"
+                class="block font-semibold text-gray-800 dark:text-gray-300 mb-2"
+                >Descrição detalhada</label
+              >
+              <textarea
+                id="helpDescription"
+                rows="5"
+                placeholder="Descreva o que precisa..."
+                required
+                class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 resize-y bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-green-800 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
+            >
+              Enviar Solicitação
+            </button>
+            <p
+              id="helpRequestMessage"
+              class="mt-4 font-semibold text-green-800 dark:text-green-400"
+              aria-live="polite"
+            ></p>
+          </form>
+        </section>
+
+        <!-- FAQ Chat Section -->
+        <section id="faqChatSection" class="hidden flex flex-col h-[480px] max-w-3xl">
+          <h2
+            class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2"
+          >
+            Dúvidas Frequentes - IA Interativa
+          </h2>
+          <div
+            id="chatMessages"
+            class="flex-1 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-lg p-6 bg-green-50 dark:bg-gray-800 mb-6 transition-colors duration-500"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <!-- Chat messages appear here -->
+          </div>
+          <form id="chatForm" class="flex space-x-4">
+            <select
+              id="faqSelect"
+              class="w-3/4 border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+              aria-label="Selecione uma dúvida frequente"
+            >
+              <option value="" selected disabled>
+                Selecione uma dúvida para obter resposta
+              </option>
+              <option value="quemPode">
+                Quem pode solicitar ajuda na Impulso Vida?
+              </option>
+              <option value="tiposAjuda">
+                Quais tipos de ajuda são oferecidos?
+              </option>
+              <option value="confirmacao">
+                Como funciona o sistema de confirmação da deficiência?
+              </option>
+              <option value="responsaveis">
+                Quem são os responsáveis pela empresa?
+              </option>
+              <option value="cadastro">
+                Como posso me cadastrar e acessar os serviços?
+              </option>
+            </select>
+            <button
+              type="submit"
+              class="w-1/4 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
+            >
+              Perguntar
+            </button>
+          </form>
+        </section>
+
+        <!-- Admin Panel Section -->
+        <section id="adminPanelSection" class="hidden max-w-full overflow-auto">
+          <h2
+            class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2"
+          >
+            Painel Administrativo
+          </h2>
+          <p class="mb-6 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            Área exclusiva para Gustavo, Caio e Livia, onde podem visualizar e editar
+            todos os pacientes cadastrados, confirmar exames e gerenciar o
+            sistema.
+          </p>
+          <div class="overflow-x-auto rounded-lg border border-green-700 dark:border-green-400 shadow-inner">
+            <table class="min-w-full border-collapse border border-green-700 dark:border-green-400">
+              <thead class="bg-green-800 dark:bg-green-600 text-white">
+                <tr>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">Nome</th>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">Email</th>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
+                    Tipo de Deficiência
+                  </th>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+                    Confirmação Exame
+                  </th>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+                    Grau de Preocupação
+                  </th>
+                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="patientsTableBody" class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200"></tbody>
+            </table>
+          </div>
+          <p
+            id="adminMessage"
+            class="mt-6 font-semibold text-red-700 dark:text-red-500"
+            aria-live="polite"
+          ></p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-green-900 dark:bg-green-800 text-green-100 dark:text-green-200 py-8 mt-auto transition-colors duration-500">
+    <div class="container mx-auto max-w-6xl px-6 md:px-8 text-center text-sm md:text-base">
+      &copy; 2024 Impulso Vida. Todos os direitos reservados.
+    </div>
+  </footer>
 
   <script>
-    // Mobile menu toggle
-    const btnMobileMenu = document.getElementById("btn-mobile-menu");
-    const mobileMenu = document.getElementById("mobile-menu");
+    // Dark mode toggle
+    const btnToggleDark = document.getElementById("btnToggleDark");
+    const htmlEl = document.documentElement;
+    const icon = btnToggleDark.querySelector("i");
 
-    btnMobileMenu.addEventListener("click", () => {
-      const expanded =
-        btnMobileMenu.getAttribute("aria-expanded") === "true" || false;
-      btnMobileMenu.setAttribute("aria-expanded", !expanded);
-      mobileMenu.classList.toggle("open");
+    // Load dark mode preference from localStorage
+    if (
+      localStorage.getItem("impulsoVidaDarkMode") === "true" ||
+      (!("impulsoVidaDarkMode" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlEl.classList.add("dark");
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
+
+    btnToggleDark.addEventListener("click", () => {
+      htmlEl.classList.toggle("dark");
+      const isDark = htmlEl.classList.contains("dark");
+      localStorage.setItem("impulsoVidaDarkMode", isDark);
+      if (isDark) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    });
+
+    // Data storage simulation
+    const usersKey = "impulsoVidaUsers";
+    const helpRequestsKey = "impulsoVidaHelpRequests";
+
+    // Lodando os adm; Eloy, Caio e Livia
+    // Load users
+    let users =
+      JSON.parse(localStorage.getItem(usersKey)) || [
+        {
+          id: 1,
+          name: "Gustavo",
+          email: "gustavo@impulsovida.com",
+          password: "1234",
+          role: "co-ceo",
+          deficiencyType: null,
+          examConfirmed: true,
+          concernLevel: null,
+        },
+        {
+          id: 2,
+          name: "Caio",
+          email: "caio@impulsovida.com",
+          password: "1234",
+          role: "ceo",
+          deficiencyType: null,
+          examConfirmed: true,
+          concernLevel: null,
+        },
+        {
+          id: 3,
+          name: "Livia",
+          email: "livia@impulsovida.com",
+          password: "1234",
+          role: "admin",
+          deficiencyType: null,
+          examConfirmed: true,
+          concernLevel: null,
+        },
+      ];
+
+    // Load help requests
+    let helpRequests = JSON.parse(localStorage.getItem(helpRequestsKey)) || [];
+
+    // Current logged user
+    let currentUser = null;
+
+    // Elements
+    const btnLogin = document.getElementById("btnLogin");
+    const btnRegister = document.getElementById("btnRegister");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const formMessage = document.getElementById("formMessage");
+    const dashboard = document.getElementById("dashboard");
+    const mainContent = document.getElementById("home");
+    const aboutSection = document.getElementById("sobre");
+    const faqSection = document.getElementById("faq");
+    const loginSection = document.getElementById("login");
+    const btnLogout = document.getElementById("btnLogout");
+    const btnHelpRequest = document.getElementById("btnHelpRequest");
+    const btnFAQChat = document.getElementById("btnFAQChat");
+    const btnAdminPanel = document.getElementById("btnAdminPanel");
+    const btnProfile = document.getElementById("btnProfile");
+    const helpRequestSection = document.getElementById("helpRequestSection");
+    const faqChatSection = document.getElementById("faqChatSection");
+    const adminPanelSection = document.getElementById("adminPanelSection");
+    const profileSection = document.getElementById("profileSection");
+    const patientsTableBody = document.getElementById("patientsTableBody");
+    const adminMessage = document.getElementById("adminMessage");
+    const helpRequestForm = document.getElementById("helpRequestForm");
+    const helpRequestMessage = document.getElementById("helpRequestMessage");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatForm = document.getElementById("chatForm");
+    const faqSelect = document.getElementById("faqSelect");
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+    const profileDeficiency = document.getElementById("profileDeficiency");
+    const profileConcern = document.getElementById("profileConcern");
+    const btnScheduleExam = document.getElementById("btnScheduleExam");
+    const examMessage = document.getElementById("examMessage");
+
+    // Toggle forms login/register
+    btnLogin.addEventListener("click", () => {
+      loginForm.classList.remove("hidden");
+      registerForm.classList.add("hidden");
+      formMessage.textContent = "";
+      btnLogin.classList.add("bg-green-800", "text-white");
+      btnLogin.classList.remove("bg-gray-300", "text-gray-800");
+      btnRegister.classList.remove("bg-green-800", "text-white");
+      btnRegister.classList.add("bg-gray-300", "text-gray-800");
+    });
+
+    btnRegister.addEventListener("click", () => {
+      registerForm.classList.remove("hidden");
+      loginForm.classList.add("hidden");
+      formMessage.textContent = "";
+      btnRegister.classList.add("bg-green-800", "text-white");
+      btnRegister.classList.remove("bg-gray-300", "text-gray-800");
+      btnLogin.classList.remove("bg-green-800", "text-white");
+      btnLogin.classList.add("bg-gray-300", "text-gray-800");
+    });
+
+    // Initialize with login form visible
+    btnLogin.click();
+
+    // Helper: Save users to localStorage
+    function saveUsers() {
+      localStorage.setItem(usersKey, JSON.stringify(users));
+    }
+
+    // Helper: Save help requests
+    function saveHelpRequests() {
+      localStorage.setItem(helpRequestsKey, JSON.stringify(helpRequests));
+    }
+
+    // Register form submit
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formMessage.textContent = "";
+      formMessage.classList.remove("text-green-700");
+      formMessage.classList.add("text-red-600");
+
+      const name = document.getElementById("registerName").value.trim();
+      const email = document.getElementById("registerEmail").value.trim().toLowerCase();
+      const password = document.getElementById("registerPassword").value;
+      const deficiencyType = document.getElementById("deficiencyType").value;
+
+      if (!name || !email || !password || !deficiencyType) {
+        formMessage.textContent = "Por favor, preencha todos os campos.";
+        return;
+      }
+
+      // Check if email already exists
+      if (users.some((u) => u.email === email)) {
+        formMessage.textContent = "Este email já está cadastrado.";
+        return;
+      }
+
+      // Add new user with role 'patient' and examConfirmed false, concernLevel null
+      const newUser = {
+        id: users.length ? Math.max(...users.map((u) => u.id)) + 1 : 1,
+        name,
+        email,
+        password,
+        role: "patient",
+        deficiencyType,
+        examConfirmed: false,
+        concernLevel: null,
+      };
+      users.push(newUser);
+      saveUsers();
+
+      // Auto-login after registration and show profile with welcome message
+      currentUser = newUser;
+      formMessage.classList.remove("text-red-600");
+      formMessage.classList.add("text-green-700");
+      formMessage.textContent = `Parabéns, ${name}! Cadastro realizado com sucesso. Bem-vindo(a) à Impulso Vida.`;
+
+      registerForm.reset();
+      showDashboard();
+      showProfile();
+      showWelcomeMessage(name);
+    });
+
+    // Login form submit
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formMessage.textContent = "";
+      formMessage.classList.remove("text-green-700");
+      formMessage.classList.add("text-red-600");
+
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const password = document.getElementById("loginPassword").value;
+
+      const user = users.find((u) => u.email === email && u.password === password);
+
+      if (!user) {
+        formMessage.textContent = "Email ou senha incorretos.";
+        return;
+      }
+
+      currentUser = user;
+      formMessage.textContent = "";
+      showDashboard();
+      showProfile();
+      showWelcomeMessage(user.name);
+    });
+
+    // Show dashboard and hide main/login
+    function showDashboard() {
+      mainContent.classList.add("hidden");
+      aboutSection.classList.add("hidden");
+      faqSection.classList.add("hidden");
+      loginSection.classList.add("hidden");
+      dashboard.classList.remove("hidden");
+      formMessage.textContent = "";
+      helpRequestMessage.textContent = "";
+      adminMessage.textContent = "";
+      chatMessages.innerHTML = "";
+      faqSelect.value = "";
+
+      // Show admin panel button only for CEOs and admin
+      if (
+        currentUser.role === "ceo" ||
+        currentUser.role === "co-ceo" ||
+        currentUser.role === "admin"
+      ) {
+        btnAdminPanel.classList.remove("hidden");
+      } else {
+        btnAdminPanel.classList.add("hidden");
+      }
+
+      // Show help request button only for patients with confirmed exam
+      if (currentUser.role === "patient" && currentUser.examConfirmed) {
+        btnHelpRequest.classList.remove("hidden");
+      } else {
+        btnHelpRequest.classList.add("hidden");
+      }
+    }
+
+    // Logout
+    btnLogout.addEventListener("click", () => {
+      currentUser = null;
+      dashboard.classList.add("hidden");
+      mainContent.classList.remove("hidden");
+      aboutSection.classList.remove("hidden");
+      faqSection.classList.remove("hidden");
+      loginSection.classList.remove("hidden");
+      loginForm.reset();
+      registerForm.reset();
+      formMessage.textContent = "";
+      helpRequestMessage.textContent = "";
+      adminMessage.textContent = "";
+      chatMessages.innerHTML = "";
+      faqSelect.value = "";
+      btnLogin.click();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Show profile section
+    function showProfile() {
+      profileSection.classList.remove("hidden");
+      helpRequestSection.classList.add("hidden");
+      faqChatSection.classList.add("hidden");
+      adminPanelSection.classList.add("hidden");
+
+      // Fill profile info
+      profileName.textContent = currentUser.name;
+      profileEmail.textContent = currentUser.email;
+      profileDeficiency.textContent = currentUser.deficiencyType
+        ? capitalize(currentUser.deficiencyType)
+        : "Não informado";
+
+      // Show concern level with color
+      updateConcernLevelUI();
+
+      // Show or hide schedule exam button and message
+      if (currentUser.examConfirmed) {
+        btnScheduleExam.disabled = true;
+        btnScheduleExam.textContent = "Exame já realizado";
+        examMessage.textContent = "";
+      } else {
+        btnScheduleExam.disabled = false;
+        btnScheduleExam.textContent = "Marcar Exame";
+        examMessage.textContent = "Você ainda não realizou o exame para confirmação.";
+        examMessage.className = "mt-2 text-sm font-medium text-red-600 dark:text-red-400";
+      }
+    }
+
+    // Update concern level UI in profile and admin table
+    function updateConcernLevelUI() {
+      const level = currentUser.concernLevel;
+      profileConcern.textContent = level ? capitalize(level) : "Não avaliado";
+      profileConcern.className = "inline-flex items-center font-semibold px-3 py-1 rounded-full text-white";
+
+      switch (level) {
+        case "amarelo":
+          profileConcern.classList.add("bg-yellow-500");
+          break;
+        case "laranja":
+          profileConcern.classList.add("bg-orange-600");
+          break;
+        case "vermelho":
+          profileConcern.classList.add("bg-red-700");
+          break;
+        default:
+          profileConcern.classList.add("bg-gray-500");
+      }
+    }
+
+    // Capitalize first letter helper
+    function capitalize(str) {
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    // Show welcome message in profile section
+    function showWelcomeMessage(name) {
+      const welcomeId = "welcomeMessage";
+      let welcomeEl = document.getElementById(welcomeId);
+      if (!welcomeEl) {
+        welcomeEl = document.createElement("p");
+        welcomeEl.id = welcomeId;
+        welcomeEl.className = "mb-4 text-green-700 dark:text-green-400 font-semibold text-lg";
+        profileSection.prepend(welcomeEl);
+      }
+      welcomeEl.textContent = `Olá, ${name}! Seja bem-vindo(a) ao seu perfil.`;
+      setTimeout(() => {
+        if (welcomeEl) welcomeEl.textContent = "";
+      }, 8000);
+    }
+
+    // Show help request section
+    function showHelpRequest() {
+      profileSection.classList.add("hidden");
+      helpRequestSection.classList.remove("hidden");
+      faqChatSection.classList.add("hidden");
+      adminPanelSection.classList.add("hidden");
+    }
+
+    // Show FAQ chat section
+    function showFAQChat() {
+      profileSection.classList.add("hidden");
+      helpRequestSection.classList.add("hidden");
+      faqChatSection.classList.remove("hidden");
+      adminPanelSection.classList.add("hidden");
+    }
+
+    // Show admin panel section
+    function showAdminPanel() {
+      profileSection.classList.add("hidden");
+      helpRequestSection.classList.add("hidden");
+      faqChatSection.classList.add("hidden");
+      adminPanelSection.classList.remove("hidden");
+      renderPatientsTable();
+    }
+
+    btnProfile.addEventListener("click", () => {
+      showProfile();
+    });
+
+    btnHelpRequest.addEventListener("click", () => {
+      showHelpRequest();
+    });
+
+    btnFAQChat.addEventListener("click", () => {
+      showFAQChat();
+    });
+
+    btnAdminPanel.addEventListener("click", () => {
+      showAdminPanel();
+    });
+
+    // Handle help request form submit
+    helpRequestForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      helpRequestMessage.textContent = "";
+      helpRequestMessage.classList.remove("text-green-700");
+      helpRequestMessage.classList.add("text-red-600");
+
+      if (!currentUser) {
+        helpRequestMessage.textContent = "Você precisa estar logado para enviar solicitações.";
+        return;
+      }
+
+      if (currentUser.role !== "patient") {
+        helpRequestMessage.textContent = "Apenas pacientes podem enviar solicitações de ajuda.";
+        return;
+      }
+
+      if (!currentUser.examConfirmed) {
+        helpRequestMessage.textContent =
+          "Sua deficiência ainda não foi confirmada. Marque um exame para acessar os benefícios.";
+        return;
+      }
+
+      const helpType = document.getElementById("helpType").value;
+      const helpDescription = document.getElementById("helpDescription").value.trim();
+
+      if (!helpType || !helpDescription) {
+        helpRequestMessage.textContent = "Por favor, preencha todos os campos.";
+        return;
+      }
+
+      // Save help request
+      const newRequest = {
+        id: helpRequests.length ? Math.max(...helpRequests.map((r) => r.id)) + 1 : 1,
+        userId: currentUser.id,
+        helpType,
+        helpDescription,
+        date: new Date().toISOString(),
+        status: "pendente",
+      };
+      helpRequests.push(newRequest);
+      saveHelpRequests();
+
+      helpRequestMessage.classList.remove("text-red-600");
+      helpRequestMessage.classList.add("text-green-700");
+      helpRequestMessage.textContent = "Solicitação enviada com sucesso!";
+
+      helpRequestForm.reset();
+    });
+
+    // Render patients table for admin
+    function renderPatientsTable() {
+      patientsTableBody.innerHTML = "";
+      const patients = users.filter((u) => u.role === "patient");
+      if (patients.length === 0) {
+        patientsTableBody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-gray-600 dark:text-gray-400">Nenhum paciente cadastrado.</td></tr>`;
+        return;
+      }
+      patients.forEach((p) => {
+        const tr = document.createElement("tr");
+        tr.className = "border-b border-green-700 dark:border-green-400 hover:bg-green-100 dark:hover:bg-gray-700";
+
+        // Name
+        const tdName = document.createElement("td");
+        tdName.className = "px-6 py-4 border border-green-700 dark:border-green-400";
+        tdName.textContent = p.name;
+        tr.appendChild(tdName);
+
+        // Email
+        const tdEmail = document.createElement("td");
+        tdEmail.className = "px-6 py-4 border border-green-700 dark:border-green-400";
+        tdEmail.textContent = p.email;
+        tr.appendChild(tdEmail);
+
+        // Deficiency Type
+        const tdDef = document.createElement("td");
+        tdDef.className = "px-6 py-4 border border-green-700 dark:border-green-400 capitalize";
+        tdDef.textContent = p.deficiencyType;
+        tr.appendChild(tdDef);
+
+        // Exam Confirmed (checkbox editable)
+        const tdExam = document.createElement("td");
+        tdExam.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = p.examConfirmed;
+        checkbox.disabled = false;
+        checkbox.title = "Marcar para confirmar exame";
+        checkbox.className = "cursor-pointer w-5 h-5";
+        checkbox.addEventListener("change", () => {
+          p.examConfirmed = checkbox.checked;
+          saveUsers();
+          adminMessage.textContent = "Alteração salva.";
+          setTimeout(() => (adminMessage.textContent = ""), 3000);
+          if (currentUser && currentUser.id === p.id) {
+            showProfile();
+          }
+        });
+        tdExam.appendChild(checkbox);
+        tr.appendChild(tdExam);
+
+        // Concern Level
+        const tdConcern = document.createElement("td");
+        tdConcern.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center font-semibold text-white rounded-full";
+        tdConcern.style.minWidth = "90px";
+        switch (p.concernLevel) {
+          case "amarelo":
+            tdConcern.textContent = "Amarelo";
+            tdConcern.classList.add("bg-yellow-500");
+            break;
+          case "laranja":
+            tdConcern.textContent = "Laranja";
+            tdConcern.classList.add("bg-orange-600");
+            break;
+          case "vermelho":
+            tdConcern.textContent = "Vermelho";
+            tdConcern.classList.add("bg-red-700");
+            break;
+          default:
+            tdConcern.textContent = "Não avaliado";
+            tdConcern.classList.add("bg-gray-500");
+        }
+        tr.appendChild(tdConcern);
+
+        // Actions (delete patient)
+        const tdActions = document.createElement("td");
+        tdActions.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center";
+        const btnDelete = document.createElement("button");
+        btnDelete.className =
+          "text-red-700 dark:text-red-500 hover:text-red-900 dark:hover:text-red-700 font-semibold focus:outline-none";
+        btnDelete.textContent = "Excluir";
+        btnDelete.title = "Excluir paciente";
+        btnDelete.addEventListener("click", () => {
+          if (confirm(`Deseja realmente excluir o paciente ${p.name}?`)) {
+            users = users.filter((u) => u.id !== p.id);
+            saveUsers();
+            renderPatientsTable();
+            adminMessage.textContent = "Paciente excluído.";
+            setTimeout(() => (adminMessage.textContent = ""), 3000);
+          }
+        });
+        tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+
+        patientsTableBody.appendChild(tr);
+      });
+    }
+
+    // FAQ canned answers
+    const faqAnswers = {
+      quemPode:
+        "Nosso serviço é exclusivo para pessoas com deficiências severas devidamente confirmadas por exame realizado em nossa empresa. Também priorizamos pessoas de baixa renda para garantir que o auxílio chegue a quem mais precisa.",
+      tiposAjuda:
+        "Oferecemos auxílio em tarefas como limpeza da casa, ajuda nas compras, transporte de peso e outras necessidades gerais que facilitem o dia a dia dos nossos usuários.",
+      confirmacao:
+        "Para garantir a seriedade e a justiça no acesso aos benefícios, cada usuário deve agendar um exame conosco. Após a confirmação médica, o usuário terá acesso completo aos serviços especiais.",
+      responsaveis:
+        "A Impulso Vida é liderada por Gustavo (Co-CEO), Caio (CEO) e Livia (Admin), que possuem vasta experiência em gestão social, finanças e inovação para inclusão.",
+      cadastro:
+        "Você pode criar uma conta na aba de Login/Cadastro. Após o cadastro, será necessário agendar o exame para confirmação da deficiência e, então, poderá solicitar ajuda e acessar todos os recursos.",
+    };
+
+    // Handle FAQ chat form submit
+    chatForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const selected = faqSelect.value;
+      if (!selected) return;
+
+      appendChatMessage("Você", faqSelect.options[faqSelect.selectedIndex].text, true);
+      const answer = faqAnswers[selected] || "Desculpe, não tenho uma resposta para essa pergunta.";
+      setTimeout(() => {
+        appendChatMessage("Impulso Vida IA", answer, false);
+      }, 600);
+    });
+
+    // Append chat message
+    function appendChatMessage(sender, message, isUser) {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = `mb-4 max-w-[80%] p-4 rounded-lg whitespace-pre-wrap break-words ${
+        isUser
+          ? "bg-green-800 text-white self-end ml-auto"
+          : "bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 self-start mr-auto shadow"
+      }`;
+      msgDiv.textContent = `${sender}: ${message}`;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Schedule exam button click
+    btnScheduleExam.addEventListener("click", () => {
+      if (!currentUser) return;
+      if (currentUser.examConfirmed) {
+        examMessage.textContent = "Você já realizou o exame.";
+        examMessage.className = "mt-2 text-sm font-medium text-green-700 dark:text-green-400";
+        return;
+      }
+      // Simulate exam scheduling and evaluation
+      examMessage.textContent = "Agendando exame...";
+      examMessage.className = "mt-2 text-sm font-medium text-yellow-600 dark:text-yellow-400";
+      btnScheduleExam.disabled = true;
+
+      setTimeout(() => {
+        // Randomly assign concern level for demo purposes
+        const levels = ["amarelo", "laranja", "vermelho"];
+        const randomLevel = levels[Math.floor(Math.random() * levels.length)];
+        currentUser.examConfirmed = true;
+        currentUser.concernLevel = randomLevel;
+        // Update user in users array
+        const idx = users.findIndex((u) => u.id === currentUser.id);
+        if (idx !== -1) {
+          users[idx] = currentUser;
+          saveUsers();
+        }
+        updateConcernLevelUI();
+        examMessage.textContent = `Exame realizado com sucesso. Grau de preocupação: ${capitalize(randomLevel)}.`;
+        examMessage.className = "mt-2 text-sm font-medium text-green-700 dark:text-green-400";
+        btnScheduleExam.textContent = "Exame já realizado";
+        btnScheduleExam.disabled = true;
+        // Show help request button now that exam is confirmed
+        btnHelpRequest.classList.remove("hidden");
+      }, 2500);
     });
   </script>
 </body>
