@@ -1,15 +1,18 @@
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impulso Vida - Apoio Profissional para Pessoas com Deficiência</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Impulso Vida - Apoio Profissional para Pessoas com Deficiência
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    /* Custom scrollbar for chat */
+   body {
+      font-family: 'Inter', sans-serif;
+    }
     #chatMessages {
       scrollbar-width: thin;
       scrollbar-color: #a0aec0 #edf2f7;
@@ -24,7 +27,6 @@
       background-color: #a0aec0;
       border-radius: 4px;
     }
-    /* Dark mode overrides */
     .dark body {
       background-color: #121212;
       color: #e0e0e0;
@@ -132,590 +134,907 @@
       color: #121212 !important;
     }
   </style>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col transition-colors duration-500">
+ </head>
+ <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-500">
   <!-- Navbar -->
-  <nav class="bg-white shadow-md transition-colors duration-500">
-    <div
-      class="container mx-auto px-6 md:px-8 py-5 flex flex-wrap items-center justify-between"
-    >
-      <a href="#" class="flex items-center space-x-3 select-none">
-        <img
-          src="https://storage.googleapis.com/a1aa/image/3807c2e2-0916-4e64-13ef-0a16cea35730.jpg"
-          alt="Logo Impulso Vida: desenho preto e branco de árvore dentro de círculo"
-          class="w-14 h-14 object-contain"
-        />
-        <span
-          class="text-2xl font-extrabold text-green-900 dark:text-green-400 tracking-wide"
-          >Impulso Vida</span
-        >
-      </a>
-      <div class="space-x-8 text-gray-700 dark:text-green-300 font-semibold text-lg flex items-center">
-        <a
-          href="#home"
-          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
-          >Início</a
-        >
-        <a
-          href="#sobre"
-          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
-          >Sobre</a
-        >
-        <a
-          href="#faq"
-          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
-          >FAQ</a
-        >
-        <a
-          href="#login"
-          class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium"
-          >Login / Cadastro</a
-        >
-        <button
-          id="btnToggleDark"
-          aria-label="Alternar modo escuro"
-          title="Alternar modo escuro"
-          class="ml-4 p-2 rounded-md border border-green-700 dark:border-green-400 text-green-700 dark:text-green-400 hover:bg-green-700 hover:text-white dark:hover:bg-green-400 dark:hover:text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400"
-        >
-          <i class="fas fa-moon"></i>
-        </button>
-      </div>
+  <nav class="bg-white dark:bg-gray-800 shadow-md transition-colors duration-500 sticky top-0 z-50">
+   <div class="container mx-auto px-6 md:px-8 py-4 flex flex-wrap items-center justify-between">
+    <a class="flex items-center space-x-3 select-none" href="#home">
+     <img alt="Logo Impulso Vida: desenho preto e branco de árvore dentro de círculo" class="w-14 h-14 object-contain" height="56" src="https://storage.googleapis.com/a1aa/image/6284e52c-92f0-487c-42cc-5e2d9efc5a9c.jpg" width="56"/>
+     <span class="text-2xl font-extrabold text-green-900 dark:text-green-400 tracking-wide">
+      Impulso Vida
+     </span>
+    </a>
+    <div class="space-x-6 text-gray-700 dark:text-green-300 font-semibold text-lg flex items-center flex-wrap">
+     <a class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium" href="#home">
+      Início
+     </a>
+     <a class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium" href="#sobre">
+      Sobre
+     </a>
+     <a class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium" href="#depoimentos">
+      Depoimentos
+     </a>
+     <a class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium" href="#faq">
+      FAQ
+     </a>
+     <a class="hover:text-green-900 dark:hover:text-green-400 transition duration-300 font-medium" href="#login">
+      Login / Cadastro
+     </a>
+     <button aria-label="Alternar modo escuro" class="ml-4 p-2 rounded-md border border-green-700 dark:border-green-400 text-green-700 dark:text-green-400 hover:bg-green-700 hover:text-white dark:hover:bg-green-400 dark:hover:text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400" id="btnToggleDark" title="Alternar modo escuro">
+      <i class="fas fa-moon">
+      </i>
+     </button>
     </div>
+   </div>
   </nav>
-
   <!-- Hero Section -->
-  <header
-    id="home"
-    class="bg-white dark:bg-gray-900 shadow-lg py-16 flex flex-col items-center text-center px-6 md:px-0 transition-colors duration-500"
-  >
-    <h1
-      class="text-5xl md:text-6xl font-extrabold text-green-900 dark:text-green-400 max-w-4xl leading-tight mb-6"
-    >
-      Impulso Vida: Apoio Profissional e Humanizado para Pessoas com Deficiência
-    </h1>
-    <p class="max-w-3xl text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-      Somos uma empresa dedicada a transformar vidas, oferecendo suporte
-      especializado para pessoas com deficiências severas e baixa renda. Nosso
-      compromisso é garantir dignidade, autonomia e qualidade de vida por meio
-      de serviços personalizados e uma equipe comprometida.
+  <header class="bg-white dark:bg-gray-800 shadow-lg py-20 flex flex-col items-center text-center px-6 md:px-0 transition-colors duration-500" id="home">
+   <h1 class="text-5xl md:text-6xl font-extrabold text-green-900 dark:text-green-400 max-w-5xl leading-tight mb-6">
+    Impulso Vida: Apoio Profissional e Humanizado para Pessoas com Deficiência
+   </h1>
+   <p class="max-w-4xl text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+    Fundada para transformar vidas, a Impulso Vida oferece suporte especializado e humanizado para pessoas com deficiências severas e baixa renda. Nosso compromisso é garantir dignidade, autonomia e qualidade de vida por meio de serviços personalizados e uma equipe dedicada.
+   </p>
+   <div class="mt-10 max-w-4xl text-left text-gray-800 dark:text-gray-200 space-y-6 text-lg md:text-xl leading-relaxed">
+    <p>
+     A Impulso Vida nasceu da necessidade urgente de oferecer um suporte qualificado e humano para pessoas com deficiências severas, que enfrentam barreiras para acessar serviços essenciais. Nosso projeto vai além da ajuda prática, criando uma rede de acolhimento e empoderamento.
     </p>
+    <p>
+     Para garantir que os benefícios sejam direcionados a quem realmente necessita, implementamos um sistema rigoroso de confirmação médica, onde cada usuário deve realizar um exame conosco para validar sua condição e ter acesso aos serviços exclusivos.
+    </p>
+    <p>
+     Com planos acessíveis e um catálogo de produtos, oferecemos descontos e benefícios exclusivos para nossos usuários, promovendo inclusão e qualidade de vida.
+    </p>
+   </div>
   </header>
-
   <!-- About Section -->
-  <section
-    id="sobre"
-    class="container mx-auto max-w-6xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-10 py-12 transition-colors duration-500"
-  >
-    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2">
-      Sobre a Impulso Vida
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div>
-        <p class="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-          A Impulso Vida nasceu da necessidade urgente de oferecer um suporte
-          qualificado e humano para pessoas com deficiências severas, que
-          muitas vezes enfrentam barreiras para acessar serviços essenciais.
-          Nosso projeto visa não apenas prover ajuda prática, como limpeza,
-          compras e auxílio no transporte de peso, mas também criar uma rede de
-          acolhimento e empoderamento.
-        </p>
-        <p class="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed">
-          Para garantir que os benefícios sejam direcionados a quem realmente
-          necessita, implementamos um sistema rigoroso de confirmação médica,
-          onde cada usuário deve realizar um exame conosco para validar sua
-          condição e ter acesso aos serviços exclusivos.
-        </p>
-      </div>
-      <div class="space-y-10">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/73da88bf-2ea7-45a1-84b0-7e5ae545e742.jpg"
-            alt="Foto profissional do CEO Caio, homem sorridente, fundo neutro"
-            class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0"
-          />
-          <div>
-            <h3 class="text-xl md:text-2xl font-semibold text-green-900 dark:text-green-400">
-              Caio
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 italic text-base md:text-lg leading-relaxed max-w-xl">
-              CEO e visionário, Caio lidera a Impulso Vida com foco em inovação
-              e responsabilidade social. Ele acredita que a tecnologia e o
-              cuidado humano podem caminhar juntos para transformar realidades,
-              promovendo inclusão e qualidade de vida para todos.
-            </p>
-          </div>
-        </div>
-        <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/8e5801c4-bc39-4c73-0cc4-81c9661ccd9f.jpg"
-            alt="Foto profissional do Co-CEO Gustavo, homem sorridente, fundo neutro"
-            class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0"
-          />
-          <div>
-            <h3 class="text-xl md:text-2xl font-semibold text-green-900 dark:text-green-400">
-              Gustavo
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 italic text-base md:text-lg leading-relaxed max-w-xl">
-              Co-CEO e fundador, Gustavo traz mais de 15 anos de experiência em
-              gestão social, gestão de finanças e projetos de inclusão.
-              Sua paixão é criar soluções práticas que impactem positivamente a
-              vida das pessoas, garantindo sustentabilidade e eficiência.
-            </p>
-          </div>
-        </div>
-      </div>
+  <section class="container mx-auto max-w-6xl bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-20 px-8 py-14 transition-colors duration-500" id="sobre">
+   <h2 class="text-4xl font-bold text-green-900 dark:text-green-400 mb-10 border-b-4 border-green-700 dark:border-green-400 inline-block pb-3">
+    Sobre a Impulso Vida
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+    <div class="space-y-8 text-gray-800 dark:text-gray-300 text-lg leading-relaxed">
+     <p>
+      A Impulso Vida é uma empresa social que nasceu da necessidade de apoiar pessoas com deficiências severas e baixa renda, oferecendo serviços que promovem autonomia e dignidade. Nosso foco é a inclusão real, com atendimento humanizado e soluções práticas para o dia a dia.
+     </p>
+     <p>
+      Nosso sistema exige a confirmação da deficiência por meio de exame médico realizado em nossa empresa, garantindo que os benefícios sejam direcionados a quem realmente precisa. Após a confirmação, o usuário pode acessar serviços exclusivos, planos de apoio e descontos em nosso catálogo.
+     </p>
     </div>
+    <div class="space-y-10">
+     <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-8">
+      <img alt="Foto profissional do CEO Caio, homem sorridente, fundo neutro" class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0" height="128" src="https://storage.googleapis.com/a1aa/image/386d23a4-d5e0-427e-6560-a43a159ab31b.jpg" width="128"/>
+      <div>
+       <h3 class="text-2xl font-semibold text-green-900 dark:text-green-400 mb-2">
+        Caio
+       </h3>
+       <p class="italic text-gray-700 dark:text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
+        CEO e visionário, Caio lidera a Impulso Vida com foco em inovação e responsabilidade social. Ele acredita que a tecnologia e o cuidado humano podem caminhar juntos para transformar realidades, promovendo inclusão e qualidade de vida para todos.
+       </p>
+      </div>
+     </div>
+     <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-8">
+      <img alt="Foto profissional do Co-CEO Gustavo, homem sorridente, fundo neutro" class="w-32 h-32 rounded-full object-cover border-4 border-green-700 dark:border-green-400 shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0" height="128" src="https://storage.googleapis.com/a1aa/image/a75a6786-93ff-40b2-59a5-805a0ecccf17.jpg" width="128"/>
+      <div>
+       <h3 class="text-2xl font-semibold text-green-900 dark:text-green-400 mb-2">
+        Gustavo
+       </h3>
+       <p class="italic text-gray-700 dark:text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
+        Co-CEO e fundador, Gustavo traz mais de 15 anos de experiência em gestão social, finanças e projetos de inclusão. Sua paixão é criar soluções práticas que impactem positivamente a vida das pessoas, garantindo sustentabilidade e eficiência.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
   </section>
-
+  <!-- Depoimentos Section -->
+  <section class="container mx-auto max-w-6xl bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-20 px-8 py-14 transition-colors duration-500" id="depoimentos">
+   <h2 class="text-4xl font-bold text-green-900 dark:text-green-400 mb-10 border-b-4 border-green-700 dark:border-green-400 inline-block pb-3 text-center">
+    Depoimentos de Quem Confia na Impulso Vida
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "A Impulso Vida mudou minha vida. O apoio que recebo é fundamental para minha autonomia e bem-estar. Recomendo a todos que precisam de ajuda especializada."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Maria S.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "Os planos são acessíveis e os serviços são prestados com muito carinho e profissionalismo. Me sinto acolhido e seguro com a equipe da Impulso Vida."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       João P.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star-half-alt"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "O exame para confirmação foi rápido e transparente. Agora posso usufruir dos benefícios que realmente fazem diferença no meu dia a dia."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Ana C.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "A equipe é muito atenciosa e sempre pronta para ajudar. O sistema de ajuda é eficiente e me trouxe muita tranquilidade."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Carlos M.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star-half-alt"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "Os descontos nos produtos e os planos são uma mão na roda para quem tem dificuldades financeiras. A Impulso Vida é uma verdadeira parceira."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Fernanda L.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "Recomendo a Impulso Vida para todos que precisam de um suporte sério e humano. Eles realmente se importam com as pessoas."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Ricardo T.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "O atendimento é personalizado e a equipe é muito competente. Me sinto valorizada e respeitada."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Patrícia F.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star-half-alt"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "A possibilidade de solicitar ajuda para tarefas do dia a dia fez toda a diferença na minha rotina."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Eduardo S.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "Os planos são justos e trazem benefícios reais. A cesta básica mensal é um grande apoio para minha família."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Sônia R.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+      </div>
+     </footer>
+    </article>
+    <article class="bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-md flex flex-col">
+     <p class="text-gray-800 dark:text-gray-200 flex-grow leading-relaxed">
+      "A Impulso Vida é uma empresa que realmente se preocupa com seus usuários. Me sinto parte de uma comunidade que cuida de mim."
+     </p>
+     <footer class="mt-4 flex items-center justify-between">
+      <span class="font-semibold text-green-900 dark:text-green-400">
+       Marcelo V.
+      </span>
+      <div class="flex space-x-1 text-yellow-400">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star-half-alt"></i>
+       <i class="far fa-star"></i>
+      </div>
+     </footer>
+    </article>
+   </div>
+  </section>
   <!-- FAQ Section -->
-  <section
-    id="faq"
-    class="container mx-auto max-w-4xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-8 py-12 transition-colors duration-500"
-  >
-    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2">
-      Perguntas Frequentes (FAQ)
-    </h2>
-    <div class="space-y-4">
-      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
-        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
-          Quem pode solicitar ajuda na Impulso Vida?
-        </summary>
-        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-          Nosso serviço é exclusivo para pessoas com deficiências severas
-          devidamente confirmadas por exame realizado em nossa empresa. Também
-          priorizamos pessoas de baixa renda para garantir que o auxílio chegue
-          a quem mais precisa.
-        </p>
-      </details>
-      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
-        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
-          Quais tipos de ajuda são oferecidos?
-        </summary>
-        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-          Oferecemos auxílio em tarefas como limpeza da casa, ajuda nas compras,
-          transporte de peso e outras necessidades gerais que facilitem o dia a
-          dia dos nossos usuários.
-        </p>
-      </details>
-      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
-        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
-          Como funciona o sistema de confirmação da deficiência?
-        </summary>
-        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-          Para garantir a seriedade e a justiça no acesso aos benefícios, cada
-          usuário deve agendar um exame conosco. Após a confirmação médica, o
-          usuário terá acesso completo aos serviços especiais.
-        </p>
-      </details>
-      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
-        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
-          Quem são os responsáveis pela empresa?
-        </summary>
-        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-          A Impulso Vida é liderada por Gustavo (Co-CEO), Caio (CEO)
-          que possuem vasta experiência em gestão social, finanças e inovação para inclusão.
-        </p>
-      </details>
-      <details class="border border-green-700 dark:border-green-400 rounded-lg p-5 bg-green-50 dark:bg-gray-800 transition-colors duration-500">
-        <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-lg select-none">
-          Como posso me cadastrar e acessar os serviços?
-        </summary>
-        <p class="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg">
-          Você pode criar uma conta na aba de Login/Cadastro. Após o cadastro,
-          será necessário agendar o exame para confirmação da deficiência e,
-          então, poderá solicitar ajuda e acessar todos os recursos.
-        </p>
-      </details>
-    </div>
+  <section class="container mx-auto max-w-4xl bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-20 px-8 py-14 transition-colors duration-500" id="faq">
+   <h2 class="text-4xl font-bold text-green-900 dark:text-green-400 mb-10 border-b-4 border-green-700 dark:border-green-400 inline-block pb-3 text-center">
+    Perguntas Frequentes (FAQ)
+   </h2>
+   <div class="space-y-5">
+    <details class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 transition-colors duration-500">
+     <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-xl select-none">
+      Quem pode solicitar ajuda na Impulso Vida?
+     </summary>
+     <p class="mt-4 text-gray-800 dark:text-gray-300 leading-relaxed text-lg">
+      Nosso serviço é exclusivo para pessoas com deficiências severas devidamente confirmadas por exame realizado em nossa empresa. Também priorizamos pessoas de baixa renda para garantir que o auxílio chegue a quem mais precisa.
+     </p>
+    </details>
+    <details class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 transition-colors duration-500">
+     <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-xl select-none">
+      Quais tipos de ajuda são oferecidos?
+     </summary>
+     <p class="mt-4 text-gray-800 dark:text-gray-300 leading-relaxed text-lg">
+      Oferecemos auxílio em tarefas como limpeza da casa, ajuda nas compras, transporte de peso e outras necessidades gerais que facilitem o dia a dia dos nossos usuários.
+     </p>
+    </details>
+    <details class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 transition-colors duration-500">
+     <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-xl select-none">
+      Como funciona o sistema de confirmação da deficiência?
+     </summary>
+     <p class="mt-4 text-gray-800 dark:text-gray-300 leading-relaxed text-lg">
+      Para garantir a seriedade e a justiça no acesso aos benefícios, cada usuário deve agendar um exame conosco. Após a confirmação médica, o usuário terá acesso completo aos serviços especiais.
+     </p>
+    </details>
+    <details class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 transition-colors duration-500">
+     <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-xl select-none">
+      Quem são os responsáveis pela empresa?
+     </summary>
+     <p class="mt-4 text-gray-800 dark:text-gray-300 leading-relaxed text-lg">
+      A Impulso Vida é liderada por Gustavo (Co-CEO) e Caio (CEO), que possuem vasta experiência em gestão social, finanças e inovação para inclusão.
+     </p>
+    </details>
+    <details class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 transition-colors duration-500">
+     <summary class="cursor-pointer font-semibold text-green-900 dark:text-green-400 text-xl select-none">
+      Como posso me cadastrar e acessar os serviços?
+     </summary>
+     <p class="mt-4 text-gray-800 dark:text-gray-300 leading-relaxed text-lg">
+      Você pode criar uma conta na aba de Login/Cadastro. Após o cadastro, será necessário agendar o exame para confirmação da deficiência e, então, poderá solicitar ajuda e acessar todos os recursos.
+     </p>
+    </details>
+   </div>
   </section>
-
   <!-- Login / Register Section -->
-  <section
-    id="login"
-    class="container mx-auto max-w-3xl bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-16 px-6 md:px-10 py-12 mb-16 transition-colors duration-500"
-  >
-    <h2 class="text-3xl md:text-4xl font-bold text-green-900 dark:text-green-400 mb-8 border-b-4 border-green-700 dark:border-green-400 inline-block pb-2 text-center">
-      Acesso ao Sistema
-    </h2>
-    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
-      <button
-        id="btnLogin"
-        class="px-10 py-3 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
-      >
-        Entrar
-      </button>
-      <button
-        id="btnRegister"
-        class="px-10 py-3 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md font-semibold shadow-md hover:bg-gray-400 dark:hover:bg-gray-600 transition focus:outline-none focus:ring-2 focus:ring-gray-400"
-      >
-        Cadastrar
-      </button>
+  <section class="container mx-auto max-w-3xl bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-20 px-8 py-14 mb-20 transition-colors duration-500" id="login">
+   <h2 class="text-4xl font-bold text-green-900 dark:text-green-400 mb-10 border-b-4 border-green-700 dark:border-green-400 inline-block pb-3 text-center">
+    Acesso ao Sistema
+   </h2>
+   <div class="flex flex-col sm:flex-row justify-center space-y-5 sm:space-y-0 sm:space-x-10 mb-10">
+    <button class="px-12 py-4 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" id="btnLogin">
+     Entrar
+    </button>
+    <button class="px-12 py-4 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-md font-semibold shadow-md hover:bg-gray-400 dark:hover:bg-gray-600 transition focus:outline-none focus:ring-2 focus:ring-gray-400" id="btnRegister">
+     Cadastrar
+    </button>
+   </div>
+   <!-- Login Form -->
+   <form autocomplete="off" class="space-y-6 max-w-md mx-auto" id="loginForm">
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="loginEmail">
+      Email
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="loginEmail" required="" type="email"/>
     </div>
-
-    <!-- Login Form -->
-    <form id="loginForm" autocomplete="off" class="space-y-6 max-w-md mx-auto">
-      <div>
-        <label
-          for="loginEmail"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Email</label
-        >
-        <input
-          type="email"
-          id="loginEmail"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        />
-      </div>
-      <div>
-        <label
-          for="loginPassword"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Senha</label
-        >
-        <input
-          type="password"
-          id="loginPassword"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        />
-      </div>
-      <button
-        type="submit"
-        class="w-full bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
-      >
-        Entrar
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="loginCPF">
+      CPF
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="loginCPF" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required="" title="Digite o CPF no formato 000.000.000-00" type="text"/>
+    </div>
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="loginPassword">
+      Senha
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="loginPassword" required="" type="password"/>
+    </div>
+    <button class="w-full bg-green-800 text-white py-4 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" type="submit">
+     Entrar
+    </button>
+   </form>
+   <!-- Register Form -->
+   <form autocomplete="off" class="space-y-6 max-w-md mx-auto hidden" id="registerForm">
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="registerName">
+      Nome Completo
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="registerName" required="" type="text"/>
+    </div>
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="registerEmail">
+      Email
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="registerEmail" required="" type="email"/>
+    </div>
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="registerCPF">
+      CPF
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="registerCPF" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required="" title="Digite o CPF no formato 000.000.000-00" type="text"/>
+    </div>
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="registerPassword">
+      Senha
+     </label>
+     <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="registerPassword" required="" type="password"/>
+    </div>
+    <div>
+     <label class="block text-gray-800 dark:text-gray-300 font-medium mb-2" for="deficiencyType">
+      Tipo de Deficiência
+     </label>
+     <select class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="deficiencyType" required="">
+      <option disabled="" selected="" value="">
+       Selecione
+      </option>
+      <option value="fisica">
+       Física (deficiência pesada)
+      </option>
+      <option value="visual">
+       Visual (deficiência pesada)
+      </option>
+      <option value="auditiva">
+       Auditiva (deficiência pesada)
+      </option>
+      <option value="multipla">
+       Múltipla (deficiência pesada)
+      </option>
+      <option value="outra">
+       Outra (deficiência pesada)
+      </option>
+     </select>
+     <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+      Para receber benefícios, é necessário marcar exame para confirmação da deficiência.
+     </p>
+    </div>
+    <button class="w-full bg-green-800 text-white py-4 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" type="submit">
+     Cadastrar
+    </button>
+   </form>
+   <p aria-live="polite" class="mt-6 text-center font-semibold text-red-600 dark:text-red-400" id="formMessage">
+   </p>
+  </section>
+  <!-- Dashboard Section -->
+  <section class="container mx-auto max-w-7xl bg-white dark:bg-gray-800 rounded-lg shadow-lg px-8 py-12 mb-20 hidden transition-colors duration-500 flex flex-col" id="dashboard">
+   <div class="flex flex-col md:flex-row md:space-x-12">
+    <!-- Sidebar -->
+    <aside class="md:w-1/4 bg-green-50 dark:bg-gray-700 rounded-lg p-6 shadow-inner sticky top-24 self-start transition-colors duration-500">
+     <h3 class="text-xl font-bold text-green-900 dark:text-green-400 mb-8 border-b border-green-700 dark:border-green-400 pb-3">
+      Menu
+     </h3>
+     <nav class="flex flex-col space-y-6 text-green-900 dark:text-green-400 font-semibold text-lg">
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded" id="btnProfile">
+       Meu Perfil
       </button>
-    </form>
-
-    <!-- Register Form -->
-    <form
-      id="registerForm"
-      autocomplete="off"
-      class="space-y-6 max-w-md mx-auto hidden"
-    >
-      <div>
-        <label
-          for="registerName"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Nome Completo</label
-        >
-        <input
-          type="text"
-          id="registerName"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        />
-      </div>
-      <div>
-        <label
-          for="registerEmail"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Email</label
-        >
-        <input
-          type="email"
-          id="registerEmail"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        />
-      </div>
-      <div>
-        <label
-          for="registerPassword"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Senha</label
-        >
-        <input
-          type="password"
-          id="registerPassword"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        />
-      </div>
-      <div>
-        <label
-          for="deficiencyType"
-          class="block text-gray-700 dark:text-gray-300 font-medium mb-2"
-          >Tipo de Deficiência</label
-        >
-        <select
-          id="deficiencyType"
-          required
-          class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-        >
-          <option value="" disabled selected>Selecione</option>
-          <option value="fisica">Física (deficiência pesada)</option>
-          <option value="visual">Visual (deficiência pesada)</option>
-          <option value="auditiva">Auditiva (deficiência pesada)</option>
-          <option value="multipla">Múltipla (deficiência pesada)</option>
-          <option value="outra">Outra (deficiência pesada)</option>
-        </select>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Para receber benefícios, é necessário marcar exame para confirmação da deficiência.
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden" id="btnHelpRequest">
+       Solicitar Ajuda
+      </button>
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden" id="btnPlans">
+       Planos de Apoio
+      </button>
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden" id="btnCatalog">
+       Catálogo de Produtos
+      </button>
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded" id="btnFAQChat">
+       Dúvidas Frequentes (IA)
+      </button>
+      <button class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden" id="btnAdminPanel">
+       Painel Administrativo
+      </button>
+      <button class="text-left text-red-700 dark:text-red-500 font-bold hover:text-red-900 dark:hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 dark:focus:ring-red-500 rounded" id="btnLogout">
+       Sair
+      </button>
+     </nav>
+    </aside>
+    <!-- Content Area -->
+    <div class="md:flex-1 bg-white dark:bg-gray-900 rounded-lg p-10 shadow-md min-h-[700px] transition-colors duration-500 flex flex-col overflow-auto">
+     <!-- Profile Section -->
+     <section class="space-y-8" id="profileSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Meu Perfil
+      </h2>
+      <p class="text-green-700 dark:text-green-400 font-semibold text-lg" id="welcomeMessage">
+      </p>
+      <div class="max-w-lg space-y-5 text-gray-800 dark:text-gray-300 text-lg leading-relaxed">
+       <p>
+        <span class="font-semibold">
+         Nome:
+        </span>
+        <span id="profileName">
+        </span>
+       </p>
+       <p>
+        <span class="font-semibold">
+         Email:
+        </span>
+        <span id="profileEmail">
+        </span>
+       </p>
+       <p>
+        <span class="font-semibold">
+         CPF:
+        </span>
+        <span id="profileCPF">
+        </span>
+       </p>
+       <p>
+        <span class="font-semibold">
+         Tipo de Deficiência:
+        </span>
+        <span id="profileDeficiency">
+        </span>
+       </p>
+       <p>
+        <span class="font-semibold">
+         Plano de Apoio:
+        </span>
+        <span id="profilePlan" class="capitalize">
+         Nenhum
+        </span>
+       </p>
+       <p>
+        <span class="font-semibold">
+         Grau de Preocupação:
+        </span>
+        <span class="inline-flex items-center font-semibold px-4 py-1 rounded-full text-white" id="profileConcern">
+        </span>
+       </p>
+       <div>
+        <p class="font-semibold mb-3">
+         Agendar Exame para Confirmação
         </p>
-      </div>
-      <button
-        type="submit"
-        class="w-full bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
-      >
-        Cadastrar
-      </button>
-    </form>
-
-    <p
-      id="formMessage"
-      class="mt-6 text-center font-semibold text-red-600 dark:text-red-400"
-      aria-live="polite"
-    ></p>
-  </section>
-
-  <!-- Logged in Dashboard -->
-  <section
-    id="dashboard"
-    class="container mx-auto max-w-7xl bg-white dark:bg-gray-900 rounded-lg shadow-lg px-6 md:px-12 py-10 mb-16 hidden transition-colors duration-500"
-  >
-    <div class="flex flex-col md:flex-row md:space-x-12">
-      <!-- Sidebar -->
-      <aside
-        class="md:w-1/4 bg-green-50 dark:bg-gray-800 rounded-lg p-6 shadow-inner sticky top-20 self-start transition-colors duration-500"
-      >
-        <h3 class="text-xl font-bold text-green-900 dark:text-green-400 mb-8 border-b border-green-700 dark:border-green-400 pb-2">
-          Menu
+        <form class="space-y-4" id="examScheduleForm">
+         <div>
+          <label class="block font-medium mb-1" for="examDate">Data do Exame</label>
+          <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="examDate" min="" required="" type="date"/>
+         </div>
+         <div>
+          <label class="block font-medium mb-1" for="examTime">Horário do Exame</label>
+          <select class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="examTime" required="">
+           <option disabled="" selected="" value="">
+            Selecione o horário
+           </option>
+          </select>
+         </div>
+         <div>
+          <label class="block font-medium mb-1" for="examLocation">Local do Exame</label>
+          <input class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="examLocation" placeholder="Ex: Unidade Centro" required="" type="text"/>
+         </div>
+         <button class="bg-green-800 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" type="submit">
+          Agendar Exame
+         </button>
+        </form>
+        <p class="mt-3 text-sm font-medium" id="examMessage">
+        </p>
+        <div id="examInfo" class="mt-4 p-4 bg-green-100 dark:bg-green-900 rounded-md border border-green-300 dark:border-green-700 hidden">
+         <h4 class="font-semibold mb-2 text-green-900 dark:text-green-400">Exame Agendado</h4>
+         <p><strong>Data:</strong> <span id="scheduledDate"></span></p>
+         <p><strong>Horário:</strong> <span id="scheduledTime"></span></p>
+         <p><strong>Local:</strong> <span id="scheduledLocation"></span></p>
+         <p class="mt-2 text-sm italic text-gray-700 dark:text-gray-300">A confirmação do exame será feita por um administrador.</p>
+        </div>
+       </div>
+       <div class="mt-8 p-5 bg-yellow-100 dark:bg-yellow-700 rounded-md border border-yellow-300 dark:border-yellow-600">
+        <h3 class="font-semibold mb-3 text-yellow-800 dark:text-yellow-200">
+         Disclaimer - Grau de Preocupação
         </h3>
-        <nav class="flex flex-col space-y-6 text-green-900 dark:text-green-400 font-semibold text-lg">
-          <button
-            id="btnProfile"
-            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded"
-          >
-            Meu Perfil
-          </button>
-          <button
-            id="btnHelpRequest"
-            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden"
-          >
-            Solicitar Ajuda
-          </button>
-          <button
-            id="btnFAQChat"
-            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded"
-          >
-            Dúvidas Frequentes (IA)
-          </button>
-          <button
-            id="btnAdminPanel"
-            class="text-left hover:text-green-800 dark:hover:text-green-300 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-400 rounded hidden"
-          >
-            Painel Administrativo
-          </button>
-          <button
-            id="btnLogout"
-            class="text-left text-red-700 dark:text-red-500 font-bold hover:text-red-900 dark:hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 dark:focus:ring-red-500 rounded"
-          >
-            Sair
-          </button>
-        </nav>
-      </aside>
-
-      <!-- Content Area -->
-      <div class="md:flex-1 bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md min-h-[480px] transition-colors duration-500 flex flex-col">
-        <!-- Profile Section -->
-        <section id="profileSection" class="space-y-6">
-          <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2">
-            Meu Perfil
-          </h2>
-          <div class="max-w-lg space-y-4">
-            <p><span class="font-semibold">Nome:</span> <span id="profileName"></span></p>
-            <p><span class="font-semibold">Email:</span> <span id="profileEmail"></span></p>
-            <p><span class="font-semibold">Tipo de Deficiência:</span> <span id="profileDeficiency"></span></p>
-            <p>
-              <span class="font-semibold">Grau de Preocupação:</span>
-              <span id="profileConcern" class="inline-flex items-center font-semibold px-3 py-1 rounded-full text-white"></span>
-            </p>
-            <div>
-              <p class="font-semibold mb-1">Agendar Exame para Confirmação</p>
-              <button id="btnScheduleExam" class="bg-green-800 text-white px-6 py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
-                Marcar Exame
-              </button>
-              <p id="examMessage" class="mt-2 text-sm font-medium"></p>
-            </div>
-            <div class="mt-6 p-4 bg-yellow-100 dark:bg-yellow-700 rounded-md border border-yellow-300 dark:border-yellow-600">
-              <h3 class="font-semibold mb-2 text-yellow-800 dark:text-yellow-200">Disclaimer - Grau de Preocupação</h3>
-              <p class="text-yellow-800 dark:text-yellow-200 text-sm leading-relaxed">
-                Após a realização do exame, a equipe médica avaliará o grau de preocupação com base na condição do paciente:
-              </p>
-              <ul class="list-disc list-inside mt-2 text-yellow-800 dark:text-yellow-200 text-sm">
-                <li><span class="font-semibold">Amarelo:</span> Condição estável, acesso aos benefícios liberado.</li>
-                <li><span class="font-semibold">Laranja:</span> Condição mediana, acompanhamento recomendado.</li>
-                <li><span class="font-semibold">Vermelho:</span> Condição grave, prioridade máxima no atendimento.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Help Request -->
-        <section id="helpRequestSection" class="space-y-6 hidden flex-grow overflow-auto">
-          <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2">
-            Solicitação de Ajuda
-          </h2>
-          <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Utilize este formulário para solicitar auxílio em tarefas essenciais
-            como limpeza, compras, transporte de peso e outras necessidades
-            específicas. Este serviço é exclusivo para pessoas com deficiências
-            severas confirmadas.
-          </p>
-          <form id="helpRequestForm" class="max-w-lg space-y-6">
-            <div>
-              <label
-                for="helpType"
-                class="block font-semibold text-gray-800 dark:text-gray-300 mb-2"
-                >Tipo de Ajuda</label
-              >
-              <select
-                id="helpType"
-                required
-                class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-              >
-                <option value="" disabled selected>Selecione</option>
-                <option value="limpeza">Limpar a casa</option>
-                <option value="compras">Ajudar nas compras</option>
-                <option value="peso">Ajudar com peso</option>
-                <option value="outro">Outro</option>
-              </select>
-            </div>
-            <div>
-              <label
-                for="helpDescription"
-                class="block font-semibold text-gray-800 dark:text-gray-300 mb-2"
-                >Descrição detalhada</label
-              >
-              <textarea
-                id="helpDescription"
-                rows="5"
-                placeholder="Descreva o que precisa..."
-                required
-                class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 resize-y bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="bg-green-800 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
-            >
-              Enviar Solicitação
-            </button>
-            <p
-              id="helpRequestMessage"
-              class="mt-4 font-semibold text-green-800 dark:text-green-400"
-              aria-live="polite"
-            ></p>
-          </form>
-        </section>
-
-        <!-- FAQ Chat Section -->
-        <section id="faqChatSection" class="hidden flex flex-col h-[480px] max-w-3xl">
-          <h2
-            class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2"
-          >
-            Dúvidas Frequentes - IA Interativa
-          </h2>
-          <div
-            id="chatMessages"
-            class="flex-1 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-lg p-6 bg-green-50 dark:bg-gray-800 mb-6 transition-colors duration-500"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            <!-- Chat messages appear here -->
-          </div>
-          <form id="chatForm" class="flex space-x-4">
-            <select
-              id="faqSelect"
-              class="w-3/4 border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
-              aria-label="Selecione uma dúvida frequente"
-            >
-              <option value="" selected disabled>
-                Selecione uma dúvida para obter resposta
-              </option>
-              <option value="quemPode">
-                Quem pode solicitar ajuda na Impulso Vida?
-              </option>
-              <option value="tiposAjuda">
-                Quais tipos de ajuda são oferecidos?
-              </option>
-              <option value="confirmacao">
-                Como funciona o sistema de confirmação da deficiência?
-              </option>
-              <option value="responsaveis">
-                Quem são os responsáveis pela empresa?
-              </option>
-              <option value="cadastro">
-                Como posso me cadastrar e acessar os serviços?
-              </option>
-            </select>
-            <button
-              type="submit"
-              class="w-1/4 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
-            >
-              Perguntar
-            </button>
-          </form>
-        </section>
-
-        <!-- Admin Panel Section -->
-        <section id="adminPanelSection" class="hidden max-w-full overflow-auto">
-          <h2
-            class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-2"
-          >
-            Painel Administrativo
-          </h2>
-          <p class="mb-6 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Área exclusiva para Gustavo, Caio e Livia, onde podem visualizar e editar
-            todos os pacientes cadastrados, confirmar exames e gerenciar o
-            sistema.
-          </p>
-          <div class="overflow-x-auto rounded-lg border border-green-700 dark:border-green-400 shadow-inner">
-            <table class="min-w-full border-collapse border border-green-700 dark:border-green-400">
-              <thead class="bg-green-800 dark:bg-green-600 text-white">
-                <tr>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">Nome</th>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">Email</th>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
-                    Tipo de Deficiência
-                  </th>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
-                    Confirmação Exame
-                  </th>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
-                    Grau de Preocupação
-                  </th>
-                  <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">Ações</th>
-                </tr>
-              </thead>
-              <tbody id="patientsTableBody" class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200"></tbody>
-            </table>
-          </div>
-          <p
-            id="adminMessage"
-            class="mt-6 font-semibold text-red-700 dark:text-red-500"
-            aria-live="polite"
-          ></p>
-        </section>
+        <p class="text-yellow-800 dark:text-yellow-200 text-sm leading-relaxed">
+         Após a realização do exame, a equipe médica avaliará o grau de preocupação com base na condição do paciente:
+        </p>
+        <ul class="list-disc list-inside mt-3 text-yellow-800 dark:text-yellow-200 text-sm space-y-1">
+         <li>
+          <span class="font-semibold">
+           Amarelo:
+          </span>
+          Condição estável, acesso aos benefícios liberado.
+         </li>
+         <li>
+          <span class="font-semibold">
+           Laranja:
+          </span>
+          Condição mediana, acompanhamento recomendado.
+         </li>
+         <li>
+          <span class="font-semibold">
+           Vermelho:
+          </span>
+          Condição grave, prioridade máxima no atendimento.
+         </li>
+        </ul>
+       </div>
       </div>
+     </section>
+     <!-- Help Request Section -->
+     <section class="space-y-6 hidden flex-grow overflow-auto" id="helpRequestSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Solicitação de Ajuda
+      </h2>
+      <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+       Utilize este formulário para solicitar auxílio em tarefas essenciais como limpeza, compras, transporte de peso e outras necessidades específicas. Este serviço é exclusivo para pessoas com deficiências severas confirmadas.
+      </p>
+      <form class="max-w-lg space-y-6 mt-6" id="helpRequestForm">
+       <div>
+        <label class="block font-semibold text-gray-900 dark:text-gray-300 mb-2" for="helpType">
+         Tipo de Ajuda
+        </label>
+        <select class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="helpType" required="">
+         <option disabled="" selected="" value="">
+          Selecione
+         </option>
+         <option value="limpeza">
+          Limpar a casa
+         </option>
+         <option value="compras">
+          Ajudar nas compras
+         </option>
+         <option value="peso">
+          Ajudar com peso
+         </option>
+         <option value="outro">
+          Outro
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block font-semibold text-gray-900 dark:text-gray-300 mb-2" for="helpDescription">
+         Descrição detalhada
+        </label>
+        <textarea class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 resize-y bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="helpDescription" placeholder="Descreva o que precisa..." required="" rows="5"></textarea>
+       </div>
+       <button class="bg-green-800 text-white px-10 py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" type="submit">
+        Enviar Solicitação
+       </button>
+       <p aria-live="polite" class="mt-4 font-semibold text-green-800 dark:text-green-400" id="helpRequestMessage">
+       </p>
+      </form>
+     </section>
+     <!-- Plans Section -->
+     <section class="space-y-8 hidden flex-grow overflow-auto" id="plansSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Planos de Apoio
+      </h2>
+      <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed max-w-3xl mb-8">
+       Escolha um plano que melhor atenda às suas necessidades e tenha acesso a benefícios exclusivos, descontos e serviços especiais.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
+       <article class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 shadow-md flex flex-col">
+        <h3 class="text-2xl font-bold text-green-900 dark:text-green-400 mb-4">
+         Plano Bronze
+        </h3>
+        <p class="text-xl font-semibold mb-4">
+         Preço: R$ 100,00
+        </p>
+        <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 flex-grow space-y-2">
+         <li>
+          5% de desconto nos produtos vendidos pela Impulso Vida
+         </li>
+         <li>
+          3% de desconto nos produtos vendidos pela Impulso Vida (caso deficiência grave)
+         </li>
+         <li>
+          1 limpeza de casa por semana
+         </li>
+        </ul>
+        <button class="mt-6 bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Assinar Plano Bronze
+        </button>
+       </article>
+       <article class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 shadow-md flex flex-col">
+        <h3 class="text-2xl font-bold text-green-900 dark:text-green-400 mb-4">
+         Plano Prata
+        </h3>
+        <p class="text-xl font-semibold mb-4">
+         Preço: R$ 200,00
+        </p>
+        <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 flex-grow space-y-2">
+         <li>
+          7% de desconto nos produtos vendidos pela Impulso Vida
+         </li>
+         <li>
+          3% de desconto nos produtos vendidos pela Impulso Vida (caso deficiência grave)
+         </li>
+         <li>
+          2 limpezas de casa por semana
+         </li>
+         <li>
+          1 cesta básica por mês
+         </li>
+        </ul>
+        <button class="mt-6 bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Assinar Plano Prata
+        </button>
+       </article>
+       <article class="border border-green-700 dark:border-green-400 rounded-lg p-6 bg-green-50 dark:bg-gray-700 shadow-md flex flex-col">
+        <h3 class="text-2xl font-bold text-green-900 dark:text-green-400 mb-4">
+         Plano Ouro
+        </h3>
+        <p class="text-xl font-semibold mb-4">
+         Preço: R$ 600,00
+        </p>
+        <ul class="list-disc list-inside text-gray-800 dark:text-gray-300 flex-grow space-y-2">
+         <li>
+          10% de desconto nos produtos vendidos pela Impulso Vida
+         </li>
+         <li>
+          4% de desconto nos produtos vendidos pela Impulso Vida (caso deficiência grave)
+         </li>
+         <li>
+          3 limpezas de casa por semana
+         </li>
+         <li>
+          1 cesta básica por mês
+         </li>
+        </ul>
+        <button class="mt-6 bg-green-800 text-white py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Assinar Plano Ouro
+        </button>
+       </article>
+      </div>
+      <p aria-live="polite" class="mt-6 font-semibold text-green-800 dark:text-green-400" id="planMessage">
+      </p>
+     </section>
+     <!-- Catalog Section -->
+     <section class="space-y-8 hidden flex-grow overflow-auto" id="catalogSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Catálogo de Produtos
+      </h2>
+      <p class="text-gray-800 dark:text-gray-300 text-lg leading-relaxed max-w-3xl mb-8">
+       Confira nosso catálogo de produtos disponíveis para compra com descontos exclusivos para assinantes dos planos.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl">
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio genérico com rótulo verde e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/3404ecd6-66ba-4b6b-c5e0-e8ab4e286b79.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio A
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Medicamento para controle de dor crônica.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 50,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio com rótulo azul e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/8ae1ec24-c968-4d4c-b187-2841d96f32e1.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio B
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Suplemento vitamínico para fortalecimento imunológico.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 75,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio com rótulo vermelho e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/ec95be9a-174f-4691-601e-b15fd42629ce.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio C
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Medicamento para controle de pressão arterial.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 65,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio com rótulo amarelo e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/1057a0b8-89a5-4f30-a05b-dbc38a043508.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio D
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Analgésico para dores musculares.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 40,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio com rótulo laranja e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/4042da37-d94d-4204-ab6e-013d63004f9c.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio E
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Suplemento para saúde óssea.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 55,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col">
+        <img alt="Imagem de embalagem de remédio com rótulo roxo e branco" class="rounded-md mb-4 object-cover w-full h-40" height="200" src="https://storage.googleapis.com/a1aa/image/b36c6228-28e1-4fc2-475f-233ded79e3ae.jpg" width="300"/>
+        <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
+         Remédio F
+        </h3>
+        <p class="text-gray-800 dark:text-gray-300 mb-4">
+         Medicamento para controle de diabetes.
+        </p>
+        <p class="font-bold text-lg mb-4">
+         R$ 80,00
+        </p>
+        <button class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700">
+         Comprar
+        </button>
+       </article>
+      </div>
+      <p aria-live="polite" class="mt-6 font-semibold text-green-800 dark:text-green-400" id="catalogMessage">
+      </p>
+     </section>
+     <!-- FAQ Chat Section -->
+     <section class="hidden flex flex-col h-[600px] max-w-3xl" id="faqChatSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Dúvidas Frequentes - IA Interativa
+      </h2>
+      <div aria-atomic="true" aria-live="polite" class="flex-1 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-lg p-6 bg-green-50 dark:bg-gray-700 mb-6 transition-colors duration-500" id="chatMessages">
+      </div>
+      <form class="flex space-x-4" id="chatForm">
+       <select aria-label="Selecione uma dúvida frequente" class="w-3/4 border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700" id="faqSelect">
+        <option disabled="" selected="" value="">
+         Selecione uma dúvida para obter resposta
+        </option>
+        <option value="quemPode">
+         Quem pode solicitar ajuda na Impulso Vida?
+        </option>
+        <option value="tiposAjuda">
+         Quais tipos de ajuda são oferecidos?
+        </option>
+        <option value="confirmacao">
+         Como funciona o sistema de confirmação da deficiência?
+        </option>
+        <option value="responsaveis">
+         Quem são os responsáveis pela empresa?
+        </option>
+        <option value="cadastro">
+         Como posso me cadastrar e acessar os serviços?
+        </option>
+        <option value="planos">
+         Quais são os planos disponíveis?
+        </option>
+        <option value="beneficios">
+         Quais benefícios os planos oferecem?
+        </option>
+       </select>
+       <button class="w-1/4 bg-green-800 text-white rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700" type="submit">
+        Perguntar
+       </button>
+      </form>
+     </section>
+     <!-- Admin Panel Section -->
+     <section class="hidden max-w-full overflow-auto" id="adminPanelSection">
+      <h2 class="text-3xl font-bold text-green-900 dark:text-green-400 mb-6 border-b border-green-700 dark:border-green-400 pb-3">
+       Painel Administrativo
+      </h2>
+      <p class="mb-6 text-gray-800 dark:text-gray-300 text-lg leading-relaxed max-w-4xl">
+       Área exclusiva para Gustavo (Co-CEO) e Caio (CEO), onde podem visualizar e editar todos os pacientes cadastrados, confirmar exames, gerenciar planos e o sistema.
+      </p>
+      <div class="overflow-x-auto rounded-lg border border-green-700 dark:border-green-400 shadow-inner">
+       <table class="min-w-full border-collapse border border-green-700 dark:border-green-400">
+        <thead class="bg-green-800 dark:bg-green-600 text-white">
+         <tr>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
+           Nome
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
+           Email
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
+           CPF
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-left">
+           Tipo de Deficiência
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+           Exame Agendado
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+           Confirmação Exame
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+           Grau de Preocupação
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+           Plano Assinado
+          </th>
+          <th class="px-6 py-3 border border-green-700 dark:border-green-400 text-center">
+           Ações
+          </th>
+         </tr>
+        </thead>
+        <tbody class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200" id="patientsTableBody">
+        </tbody>
+       </table>
+      </div>
+      <p aria-live="polite" class="mt-6 font-semibold text-red-700 dark:text-red-500" id="adminMessage">
+      </p>
+     </section>
     </div>
+   </div>
   </section>
-
   <footer class="bg-green-900 dark:bg-green-800 text-green-100 dark:text-green-200 py-8 mt-auto transition-colors duration-500">
-    <div class="container mx-auto max-w-6xl px-6 md:px-8 text-center text-sm md:text-base">
-      &copy; 2024 Impulso Vida. Todos os direitos reservados.
-    </div>
+   <div class="container mx-auto max-w-6xl px-6 md:px-8 text-center text-sm md:text-base">
+    © 2024 Impulso Vida. Todos os direitos reservados.
+   </div>
   </footer>
-
   <script>
-    // Dark mode toggle
+   // Dark mode toggle
     const btnToggleDark = document.getElementById("btnToggleDark");
     const htmlEl = document.documentElement;
     const icon = btnToggleDark.querySelector("i");
 
-    // Load dark mode preference from localStorage
     if (
       localStorage.getItem("impulsoVidaDarkMode") === "true" ||
       (!("impulsoVidaDarkMode" in localStorage) &&
@@ -743,39 +1062,47 @@
     const usersKey = "impulsoVidaUsers";
     const helpRequestsKey = "impulsoVidaHelpRequests";
 
-    // Lodando os adm; Eloy, Caio e Livia
-    // Load users
+    // Load users (including admins Gustavo and Caio, and RH Livia but hidden from UI)
     let users =
       JSON.parse(localStorage.getItem(usersKey)) || [
         {
           id: 1,
           name: "Gustavo",
           email: "gustavo@impulsovida.com",
+          cpf: "000.000.000-01",
           password: "1234",
           role: "co-ceo",
           deficiencyType: null,
           examConfirmed: true,
           concernLevel: null,
+          plan: null,
+          examScheduled: null,
         },
         {
           id: 2,
           name: "Caio",
           email: "caio@impulsovida.com",
+          cpf: "000.000.000-02",
           password: "1234",
           role: "ceo",
           deficiencyType: null,
           examConfirmed: true,
           concernLevel: null,
+          plan: null,
+          examScheduled: null,
         },
         {
           id: 3,
           name: "Livia",
           email: "livia@impulsovida.com",
+          cpf: "000.000.000-03",
           password: "1234",
-          role: "admin",
+          role: "rh",
           deficiencyType: null,
           examConfirmed: true,
           concernLevel: null,
+          plan: null,
+          examScheduled: null,
         },
       ];
 
@@ -795,16 +1122,21 @@
     const mainContent = document.getElementById("home");
     const aboutSection = document.getElementById("sobre");
     const faqSection = document.getElementById("faq");
+    const depoimentosSection = document.getElementById("depoimentos");
     const loginSection = document.getElementById("login");
     const btnLogout = document.getElementById("btnLogout");
     const btnHelpRequest = document.getElementById("btnHelpRequest");
     const btnFAQChat = document.getElementById("btnFAQChat");
     const btnAdminPanel = document.getElementById("btnAdminPanel");
     const btnProfile = document.getElementById("btnProfile");
+    const btnPlans = document.getElementById("btnPlans");
+    const btnCatalog = document.getElementById("btnCatalog");
     const helpRequestSection = document.getElementById("helpRequestSection");
     const faqChatSection = document.getElementById("faqChatSection");
     const adminPanelSection = document.getElementById("adminPanelSection");
     const profileSection = document.getElementById("profileSection");
+    const plansSection = document.getElementById("plansSection");
+    const catalogSection = document.getElementById("catalogSection");
     const patientsTableBody = document.getElementById("patientsTableBody");
     const adminMessage = document.getElementById("adminMessage");
     const helpRequestForm = document.getElementById("helpRequestForm");
@@ -814,10 +1146,43 @@
     const faqSelect = document.getElementById("faqSelect");
     const profileName = document.getElementById("profileName");
     const profileEmail = document.getElementById("profileEmail");
+    const profileCPF = document.getElementById("profileCPF");
     const profileDeficiency = document.getElementById("profileDeficiency");
     const profileConcern = document.getElementById("profileConcern");
+    const profilePlan = document.getElementById("profilePlan");
     const btnScheduleExam = document.getElementById("btnScheduleExam");
     const examMessage = document.getElementById("examMessage");
+    const welcomeMessage = document.getElementById("welcomeMessage");
+    const planMessage = document.getElementById("planMessage");
+    const catalogMessage = document.getElementById("catalogMessage");
+    const examScheduleForm = document.getElementById("examScheduleForm");
+    const examDateInput = document.getElementById("examDate");
+    const examTimeSelect = document.getElementById("examTime");
+    const examLocationInput = document.getElementById("examLocation");
+    const examInfo = document.getElementById("examInfo");
+    const scheduledDateSpan = document.getElementById("scheduledDate");
+    const scheduledTimeSpan = document.getElementById("scheduledTime");
+    const scheduledLocationSpan = document.getElementById("scheduledLocation");
+
+    // Set min date for exam date input to today
+    function setMinExamDate() {
+      const today = new Date().toISOString().split("T")[0];
+      examDateInput.min = today;
+    }
+    setMinExamDate();
+
+    // Populate examTimeSelect with 2-hour interval options from 07:00 to 19:00
+    function populateExamTimes() {
+      examTimeSelect.innerHTML = '<option disabled selected value="">Selecione o horário</option>';
+      for (let hour = 7; hour <= 19; hour += 2) {
+        const option = document.createElement("option");
+        const hourStr = hour.toString().padStart(2, "0");
+        option.value = `${hourStr}:00`;
+        option.textContent = `${hourStr}:00`;
+        examTimeSelect.appendChild(option);
+      }
+    }
+    populateExamTimes();
 
     // Toggle forms login/register
     btnLogin.addEventListener("click", () => {
@@ -853,6 +1218,12 @@
       localStorage.setItem(helpRequestsKey, JSON.stringify(helpRequests));
     }
 
+    // Capitalize first letter helper
+    function capitalize(str) {
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     // Register form submit
     registerForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -862,30 +1233,45 @@
 
       const name = document.getElementById("registerName").value.trim();
       const email = document.getElementById("registerEmail").value.trim().toLowerCase();
+      const cpf = document.getElementById("registerCPF").value.trim();
       const password = document.getElementById("registerPassword").value;
       const deficiencyType = document.getElementById("deficiencyType").value;
 
-      if (!name || !email || !password || !deficiencyType) {
+      if (!name || !email || !cpf || !password || !deficiencyType) {
         formMessage.textContent = "Por favor, preencha todos os campos.";
         return;
       }
 
-      // Check if email already exists
+      // Validate CPF format (basic)
+      const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+      if (!cpfRegex.test(cpf)) {
+        formMessage.textContent = "CPF inválido. Use o formato 000.000.000-00.";
+        return;
+      }
+
+      // Check if email or cpf already exists
       if (users.some((u) => u.email === email)) {
         formMessage.textContent = "Este email já está cadastrado.";
         return;
       }
+      if (users.some((u) => u.cpf === cpf)) {
+        formMessage.textContent = "Este CPF já está cadastrado.";
+        return;
+      }
 
-      // Add new user with role 'patient' and examConfirmed false, concernLevel null
+      // Add new user with role 'patient' and examConfirmed false, concernLevel null, no plan
       const newUser = {
         id: users.length ? Math.max(...users.map((u) => u.id)) + 1 : 1,
         name,
         email,
+        cpf,
         password,
         role: "patient",
         deficiencyType,
         examConfirmed: false,
         concernLevel: null,
+        plan: null,
+        examScheduled: null,
       };
       users.push(newUser);
       saveUsers();
@@ -910,12 +1296,18 @@
       formMessage.classList.add("text-red-600");
 
       const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const cpf = document.getElementById("loginCPF").value.trim();
       const password = document.getElementById("loginPassword").value;
 
-      const user = users.find((u) => u.email === email && u.password === password);
+      if (!email || !cpf || !password) {
+        formMessage.textContent = "Por favor, preencha todos os campos.";
+        return;
+      }
+
+      const user = users.find((u) => u.email === email && u.cpf === cpf && u.password === password);
 
       if (!user) {
-        formMessage.textContent = "Email ou senha incorretos.";
+        formMessage.textContent = "Email, CPF ou senha incorretos.";
         return;
       }
 
@@ -931,6 +1323,7 @@
       mainContent.classList.add("hidden");
       aboutSection.classList.add("hidden");
       faqSection.classList.add("hidden");
+      depoimentosSection.classList.add("hidden");
       loginSection.classList.add("hidden");
       dashboard.classList.remove("hidden");
       formMessage.textContent = "";
@@ -938,13 +1331,11 @@
       adminMessage.textContent = "";
       chatMessages.innerHTML = "";
       faqSelect.value = "";
+      planMessage.textContent = "";
+      catalogMessage.textContent = "";
 
-      // Show admin panel button only for CEOs and admin
-      if (
-        currentUser.role === "ceo" ||
-        currentUser.role === "co-ceo" ||
-        currentUser.role === "admin"
-      ) {
+      // Show admin panel button only for CEOs
+      if (currentUser.role === "ceo" || currentUser.role === "co-ceo") {
         btnAdminPanel.classList.remove("hidden");
       } else {
         btnAdminPanel.classList.add("hidden");
@@ -956,6 +1347,18 @@
       } else {
         btnHelpRequest.classList.add("hidden");
       }
+
+      // Show plans and catalog only for patients
+      if (currentUser.role === "patient") {
+        btnPlans.classList.remove("hidden");
+        btnCatalog.classList.remove("hidden");
+      } else {
+        btnPlans.classList.add("hidden");
+        btnCatalog.classList.add("hidden");
+      }
+
+      // Default to profile view
+      showProfile();
     }
 
     // Logout
@@ -965,6 +1368,7 @@
       mainContent.classList.remove("hidden");
       aboutSection.classList.remove("hidden");
       faqSection.classList.remove("hidden");
+      depoimentosSection.classList.remove("hidden");
       loginSection.classList.remove("hidden");
       loginForm.reset();
       registerForm.reset();
@@ -973,6 +1377,8 @@
       adminMessage.textContent = "";
       chatMessages.innerHTML = "";
       faqSelect.value = "";
+      planMessage.textContent = "";
+      catalogMessage.textContent = "";
       btnLogin.click();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -983,27 +1389,47 @@
       helpRequestSection.classList.add("hidden");
       faqChatSection.classList.add("hidden");
       adminPanelSection.classList.add("hidden");
+      plansSection.classList.add("hidden");
+      catalogSection.classList.add("hidden");
 
       // Fill profile info
       profileName.textContent = currentUser.name;
       profileEmail.textContent = currentUser.email;
-      profileDeficiency.textContent = currentUser.deficiencyType
-        ? capitalize(currentUser.deficiencyType)
-        : "Não informado";
+      profileCPF.textContent = currentUser.cpf;
+      profileDeficiency.textContent = currentUser.deficiencyType ? capitalize(currentUser.deficiencyType) : "Não informado";
+
+      // Show plan or "Nenhum"
+      profilePlan.textContent = currentUser.plan ? capitalize(currentUser.plan) : "Nenhum";
 
       // Show concern level with color
       updateConcernLevelUI();
 
-      // Show or hide schedule exam button and message
+      // Show or hide exam scheduling form or info
       if (currentUser.examConfirmed) {
-        btnScheduleExam.disabled = true;
-        btnScheduleExam.textContent = "Exame já realizado";
+        examScheduleForm.style.display = "none";
+        examInfo.style.display = "block";
         examMessage.textContent = "";
+        if (currentUser.examScheduled) {
+          scheduledDateSpan.textContent = currentUser.examScheduled.date;
+          scheduledTimeSpan.textContent = currentUser.examScheduled.time;
+          scheduledLocationSpan.textContent = currentUser.examScheduled.location;
+        } else {
+          scheduledDateSpan.textContent = "Confirmado";
+          scheduledTimeSpan.textContent = "-";
+          scheduledLocationSpan.textContent = "-";
+        }
+      } else if (currentUser.examScheduled) {
+        examScheduleForm.style.display = "none";
+        examInfo.style.display = "block";
+        scheduledDateSpan.textContent = currentUser.examScheduled.date;
+        scheduledTimeSpan.textContent = currentUser.examScheduled.time;
+        scheduledLocationSpan.textContent = currentUser.examScheduled.location;
+        examMessage.textContent = "Exame agendado, aguardando confirmação do administrador.";
+        examMessage.className = "mt-3 text-sm font-medium text-yellow-600 dark:text-yellow-400";
       } else {
-        btnScheduleExam.disabled = false;
-        btnScheduleExam.textContent = "Marcar Exame";
-        examMessage.textContent = "Você ainda não realizou o exame para confirmação.";
-        examMessage.className = "mt-2 text-sm font-medium text-red-600 dark:text-red-400";
+        examScheduleForm.style.display = "block";
+        examInfo.style.display = "none";
+        examMessage.textContent = "";
       }
     }
 
@@ -1011,7 +1437,7 @@
     function updateConcernLevelUI() {
       const level = currentUser.concernLevel;
       profileConcern.textContent = level ? capitalize(level) : "Não avaliado";
-      profileConcern.className = "inline-flex items-center font-semibold px-3 py-1 rounded-full text-white";
+      profileConcern.className = "inline-flex items-center font-semibold px-4 py-1 rounded-full text-white";
 
       switch (level) {
         case "amarelo":
@@ -1028,25 +1454,11 @@
       }
     }
 
-    // Capitalize first letter helper
-    function capitalize(str) {
-      if (!str) return "";
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-
     // Show welcome message in profile section
     function showWelcomeMessage(name) {
-      const welcomeId = "welcomeMessage";
-      let welcomeEl = document.getElementById(welcomeId);
-      if (!welcomeEl) {
-        welcomeEl = document.createElement("p");
-        welcomeEl.id = welcomeId;
-        welcomeEl.className = "mb-4 text-green-700 dark:text-green-400 font-semibold text-lg";
-        profileSection.prepend(welcomeEl);
-      }
-      welcomeEl.textContent = `Olá, ${name}! Seja bem-vindo(a) ao seu perfil.`;
+      welcomeMessage.textContent = `Olá, ${name}! Seja bem-vindo(a) ao seu perfil.`;
       setTimeout(() => {
-        if (welcomeEl) welcomeEl.textContent = "";
+        welcomeMessage.textContent = "";
       }, 8000);
     }
 
@@ -1056,6 +1468,8 @@
       helpRequestSection.classList.remove("hidden");
       faqChatSection.classList.add("hidden");
       adminPanelSection.classList.add("hidden");
+      plansSection.classList.add("hidden");
+      catalogSection.classList.add("hidden");
     }
 
     // Show FAQ chat section
@@ -1064,6 +1478,8 @@
       helpRequestSection.classList.add("hidden");
       faqChatSection.classList.remove("hidden");
       adminPanelSection.classList.add("hidden");
+      plansSection.classList.add("hidden");
+      catalogSection.classList.add("hidden");
     }
 
     // Show admin panel section
@@ -1072,7 +1488,29 @@
       helpRequestSection.classList.add("hidden");
       faqChatSection.classList.add("hidden");
       adminPanelSection.classList.remove("hidden");
+      plansSection.classList.add("hidden");
+      catalogSection.classList.add("hidden");
       renderPatientsTable();
+    }
+
+    // Show plans section
+    function showPlans() {
+      profileSection.classList.add("hidden");
+      helpRequestSection.classList.add("hidden");
+      faqChatSection.classList.add("hidden");
+      adminPanelSection.classList.add("hidden");
+      plansSection.classList.remove("hidden");
+      catalogSection.classList.add("hidden");
+    }
+
+    // Show catalog section
+    function showCatalog() {
+      profileSection.classList.add("hidden");
+      helpRequestSection.classList.add("hidden");
+      faqChatSection.classList.add("hidden");
+      adminPanelSection.classList.add("hidden");
+      plansSection.classList.add("hidden");
+      catalogSection.classList.remove("hidden");
     }
 
     btnProfile.addEventListener("click", () => {
@@ -1089,6 +1527,14 @@
 
     btnAdminPanel.addEventListener("click", () => {
       showAdminPanel();
+    });
+
+    btnPlans.addEventListener("click", () => {
+      showPlans();
+    });
+
+    btnCatalog.addEventListener("click", () => {
+      showCatalog();
     });
 
     // Handle help request form submit
@@ -1141,12 +1587,42 @@
       helpRequestForm.reset();
     });
 
+    // Handle exam scheduling form submit
+    examScheduleForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      examMessage.textContent = "";
+      const date = examDateInput.value;
+      const time = examTimeSelect.value;
+      const location = examLocationInput.value.trim();
+
+      if (!date || !time || !location) {
+        examMessage.textContent = "Por favor, preencha todos os campos do agendamento.";
+        examMessage.className = "mt-3 text-sm font-medium text-red-600 dark:text-red-400";
+        return;
+      }
+
+      // Save exam scheduling info to currentUser and users array
+      currentUser.examScheduled = { date, time, location };
+      // examConfirmed remains false until admin confirms
+      const idx = users.findIndex((u) => u.id === currentUser.id);
+      if (idx !== -1) {
+        users[idx] = currentUser;
+        saveUsers();
+      }
+
+      examMessage.textContent = "Exame agendado com sucesso! Aguardando confirmação do administrador.";
+      examMessage.className = "mt-3 text-sm font-medium text-green-700 dark:text-green-400";
+
+      // Update UI
+      showProfile();
+    });
+
     // Render patients table for admin
     function renderPatientsTable() {
       patientsTableBody.innerHTML = "";
       const patients = users.filter((u) => u.role === "patient");
       if (patients.length === 0) {
-        patientsTableBody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-gray-600 dark:text-gray-400">Nenhum paciente cadastrado.</td></tr>`;
+        patientsTableBody.innerHTML = `<tr><td colspan="9" class="text-center py-6 text-gray-600 dark:text-gray-400">Nenhum paciente cadastrado.</td></tr>`;
         return;
       }
       patients.forEach((p) => {
@@ -1165,11 +1641,27 @@
         tdEmail.textContent = p.email;
         tr.appendChild(tdEmail);
 
+        // CPF
+        const tdCPF = document.createElement("td");
+        tdCPF.className = "px-6 py-4 border border-green-700 dark:border-green-400";
+        tdCPF.textContent = p.cpf;
+        tr.appendChild(tdCPF);
+
         // Deficiency Type
         const tdDef = document.createElement("td");
         tdDef.className = "px-6 py-4 border border-green-700 dark:border-green-400 capitalize";
         tdDef.textContent = p.deficiencyType;
         tr.appendChild(tdDef);
+
+        // Exam Scheduled info
+        const tdExamScheduled = document.createElement("td");
+        tdExamScheduled.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center text-sm";
+        if (p.examScheduled) {
+          tdExamScheduled.innerHTML = `<div><strong>Data:</strong> ${p.examScheduled.date}</div><div><strong>Hora:</strong> ${p.examScheduled.time}</div><div><strong>Local:</strong> ${p.examScheduled.location}</div>`;
+        } else {
+          tdExamScheduled.textContent = "Nenhum exame agendado";
+        }
+        tr.appendChild(tdExamScheduled);
 
         // Exam Confirmed (checkbox editable)
         const tdExam = document.createElement("td");
@@ -1182,6 +1674,10 @@
         checkbox.className = "cursor-pointer w-5 h-5";
         checkbox.addEventListener("change", () => {
           p.examConfirmed = checkbox.checked;
+          if (checkbox.checked) {
+            // Clear examScheduled on confirmation
+            p.examScheduled = null;
+          }
           saveUsers();
           adminMessage.textContent = "Alteração salva.";
           setTimeout(() => (adminMessage.textContent = ""), 3000);
@@ -1192,28 +1688,55 @@
         tdExam.appendChild(checkbox);
         tr.appendChild(tdExam);
 
-        // Concern Level
+        // Concern Level (select editable)
         const tdConcern = document.createElement("td");
-        tdConcern.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center font-semibold text-white rounded-full";
-        tdConcern.style.minWidth = "90px";
-        switch (p.concernLevel) {
-          case "amarelo":
-            tdConcern.textContent = "Amarelo";
-            tdConcern.classList.add("bg-yellow-500");
-            break;
-          case "laranja":
-            tdConcern.textContent = "Laranja";
-            tdConcern.classList.add("bg-orange-600");
-            break;
-          case "vermelho":
-            tdConcern.textContent = "Vermelho";
-            tdConcern.classList.add("bg-red-700");
-            break;
-          default:
-            tdConcern.textContent = "Não avaliado";
-            tdConcern.classList.add("bg-gray-500");
-        }
+        tdConcern.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center";
+        const selectConcern = document.createElement("select");
+        selectConcern.className = "bg-green-800 text-white rounded-md px-2 py-1 font-semibold cursor-pointer";
+        selectConcern.title = "Selecionar grau de preocupação";
+        ["", "amarelo", "laranja", "vermelho"].forEach((level) => {
+          const option = document.createElement("option");
+          option.value = level;
+          option.textContent = level ? capitalize(level) : "Não avaliado";
+          if (p.concernLevel === level) option.selected = true;
+          selectConcern.appendChild(option);
+        });
+        selectConcern.addEventListener("change", () => {
+          p.concernLevel = selectConcern.value || null;
+          saveUsers();
+          adminMessage.textContent = "Alteração salva.";
+          setTimeout(() => (adminMessage.textContent = ""), 3000);
+          if (currentUser && currentUser.id === p.id) {
+            showProfile();
+          }
+        });
+        tdConcern.appendChild(selectConcern);
         tr.appendChild(tdConcern);
+
+        // Plan (select editable)
+        const tdPlan = document.createElement("td");
+        tdPlan.className = "px-6 py-4 border border-green-700 dark:border-green-400 text-center";
+        const selectPlan = document.createElement("select");
+        selectPlan.className = "bg-green-800 text-white rounded-md px-2 py-1 font-semibold cursor-pointer";
+        selectPlan.title = "Selecionar plano assinado";
+        ["", "bronze", "prata", "ouro"].forEach((plan) => {
+          const option = document.createElement("option");
+          option.value = plan;
+          option.textContent = plan ? capitalize(plan) : "Nenhum";
+          if (p.plan === plan) option.selected = true;
+          selectPlan.appendChild(option);
+        });
+        selectPlan.addEventListener("change", () => {
+          p.plan = selectPlan.value || null;
+          saveUsers();
+          adminMessage.textContent = "Alteração salva.";
+          setTimeout(() => (adminMessage.textContent = ""), 3000);
+          if (currentUser && currentUser.id === p.id) {
+            showProfile();
+          }
+        });
+        tdPlan.appendChild(selectPlan);
+        tr.appendChild(tdPlan);
 
         // Actions (delete patient)
         const tdActions = document.createElement("td");
@@ -1248,9 +1771,13 @@
       confirmacao:
         "Para garantir a seriedade e a justiça no acesso aos benefícios, cada usuário deve agendar um exame conosco. Após a confirmação médica, o usuário terá acesso completo aos serviços especiais.",
       responsaveis:
-        "A Impulso Vida é liderada por Gustavo (Co-CEO), Caio (CEO) e Livia (Admin), que possuem vasta experiência em gestão social, finanças e inovação para inclusão.",
+        "A Impulso Vida é liderada por Gustavo (Co-CEO) e Caio (CEO), que possuem vasta experiência em gestão social, finanças e inovação para inclusão.",
       cadastro:
         "Você pode criar uma conta na aba de Login/Cadastro. Após o cadastro, será necessário agendar o exame para confirmação da deficiência e, então, poderá solicitar ajuda e acessar todos os recursos.",
+      planos:
+        "Oferecemos três planos: Bronze, Prata e Ouro, com preços e benefícios variados, incluindo descontos em produtos, limpezas semanais e cestas básicas mensais.",
+      beneficios:
+        "Os planos oferecem descontos nos produtos vendidos pela Impulso Vida, limpezas de casa semanais e cestas básicas, com benefícios adicionais para deficiências graves.",
     };
 
     // Handle FAQ chat form submit
@@ -1278,41 +1805,6 @@
       chatMessages.appendChild(msgDiv);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-
-    // Schedule exam button click
-    btnScheduleExam.addEventListener("click", () => {
-      if (!currentUser) return;
-      if (currentUser.examConfirmed) {
-        examMessage.textContent = "Você já realizou o exame.";
-        examMessage.className = "mt-2 text-sm font-medium text-green-700 dark:text-green-400";
-        return;
-      }
-      // Simulate exam scheduling and evaluation
-      examMessage.textContent = "Agendando exame...";
-      examMessage.className = "mt-2 text-sm font-medium text-yellow-600 dark:text-yellow-400";
-      btnScheduleExam.disabled = true;
-
-      setTimeout(() => {
-        // Randomly assign concern level for demo purposes
-        const levels = ["amarelo", "laranja", "vermelho"];
-        const randomLevel = levels[Math.floor(Math.random() * levels.length)];
-        currentUser.examConfirmed = true;
-        currentUser.concernLevel = randomLevel;
-        // Update user in users array
-        const idx = users.findIndex((u) => u.id === currentUser.id);
-        if (idx !== -1) {
-          users[idx] = currentUser;
-          saveUsers();
-        }
-        updateConcernLevelUI();
-        examMessage.textContent = `Exame realizado com sucesso. Grau de preocupação: ${capitalize(randomLevel)}.`;
-        examMessage.className = "mt-2 text-sm font-medium text-green-700 dark:text-green-400";
-        btnScheduleExam.textContent = "Exame já realizado";
-        btnScheduleExam.disabled = true;
-        // Show help request button now that exam is confirmed
-        btnHelpRequest.classList.remove("hidden");
-      }, 2500);
-    });
   </script>
-</body>
+ </body>
 </html>
