@@ -1617,14 +1617,15 @@
    const htmlEl = document.documentElement;
    const icon = btnToggleDark.querySelector("i");
 
-   if (
-    localStorage.getItem("impulsoVidaDarkMode") === "true" ||
-    (!("impulsoVidaDarkMode" in localStorage) &&
-     window.matchMedia("(prefers-color-scheme: dark)").matches)
-   ) {
+   // Change here: default to light mode, only add dark if user explicitly toggled
+   if (localStorage.getItem("impulsoVidaDarkMode") === "true") {
     htmlEl.classList.add("dark");
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
+   } else {
+    htmlEl.classList.remove("dark");
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
    }
 
    btnToggleDark.addEventListener("click", () => {
