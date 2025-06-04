@@ -138,36 +138,63 @@
     color: #121212 !important;
    }
 
-   
-@media (max-width: 768px) {
-  aside[role="navigation"] {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5rem 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    border-top: 1px solid #ccc;
-  }
-  aside[role="navigation"] nav {
-    flex-direction: row;
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
-  }
-  aside[role="navigation"] nav button {
-    flex: 1;
-    font-size: 0.875rem;
-    text-align: center;
-    padding: 0.5rem 0.25rem;
-    white-space: nowrap;
-  }
-}
-
+   @media (max-width: 768px) {
+    aside[role="navigation"] {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     z-index: 50;
+     background-color: white;
+     display: flex;
+     justify-content: space-around;
+     padding: 0.5rem 0;
+     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+     border-top: 1px solid #ccc;
+     border-radius: 0.5rem 0.5rem 0 0;
+    }
+    aside[role="navigation"] nav {
+     flex-direction: row;
+     display: flex;
+     gap: 0.25rem;
+     width: 100%;
+     padding: 0 0.5rem;
+    }
+    aside[role="navigation"] nav button {
+     flex: 1;
+     font-size: 0.875rem;
+     text-align: center;
+     padding: 0.5rem 0.25rem;
+     white-space: nowrap;
+     background-color: transparent;
+     border: none;
+     color: #166534; /* green-800 */
+     font-weight: 600;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 0.25rem;
+     transition: color 0.3s ease, background-color 0.3s ease;
+     border-radius: 0.375rem;
+     cursor: pointer;
+    }
+    aside[role="navigation"] nav button i {
+     font-size: 1.25rem;
+     line-height: 1;
+    }
+    aside[role="navigation"] nav button:hover,
+    aside[role="navigation"] nav button:focus {
+     background-color: #22c55e; /* green-500 */
+     color: #ffffff;
+     outline: none;
+    }
+    aside[role="navigation"] nav button[aria-selected="true"] {
+     background-color: #166534; /* green-800 */
+     color: #ffffff;
+     cursor: default;
+    }
+   }
   </style>
  </head>
  <body
@@ -1338,6 +1365,9 @@
        Confira nosso catálogo de produtos disponíveis para compra com descontos
        exclusivos para assinantes dos planos.
       </p>
+
+      <!-- Catálogo de produtos: adicione novos produtos abaixo seguindo o padrão dos artigos existentes. -->
+
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl">
        <article
         class="bg-green-50 dark:bg-gray-700 rounded-lg shadow-md p-6 flex flex-col"
@@ -1348,16 +1378,16 @@
          alt="Imagem de embalagem de remédio genérico com rótulo verde e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/3404ecd6-66ba-4b6b-c5e0-e8ab4e286b79.jpg"
+         src="Assets/caixa2.jpg"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio A
+         Bevacizumabe
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Medicamento para controle de dor crônica.
+         Usado por pessoas com deficiência visual causada por degeneração macular ou retinopatia diabética. 
         </p>
-        <p class="font-bold text-lg mb-4">R$ 50,00</p>
+        <p class="font-bold text-lg mb-4">R$ 21,98</p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1373,16 +1403,16 @@
          alt="Imagem de embalagem de remédio com rótulo azul e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/8ae1ec24-c968-4d4c-b187-2841d96f32e1.jpg"
+         src="Assets/Cristal2k.webp"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio B
+          Crystal
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Suplemento vitamínico para fortalecimento imunológico.
+         Auxilia no equilíbrio neuroquímico, promovendo sensação de clareza mental e foco prolongado.
         </p>
-        <p class="font-bold text-lg mb-4">R$ 75,00</p>
+        <p class="font-bold text-lg mb-4">R$ 23,98</p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1398,16 +1428,16 @@
          alt="Imagem de embalagem de remédio com rótulo vermelho e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/ec95be9a-174f-4691-601e-b15fd42629ce.jpg"
+         src="Assets/caixa3.webp"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio C
+         Carbamazepina 
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Medicamento para controle de pressão arterial.
+         Usado por pessoas com epilepsia, transtorno bipolar ou dor neuropática.
         </p>
-        <p class="font-bold text-lg mb-4">R$ 65,00</p>
+        <p class="font-bold text-lg mb-4">R$ 2.000</p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1423,16 +1453,16 @@
          alt="Imagem de embalagem de remédio com rótulo amarelo e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/1057a0b8-89a5-4f30-a05b-dbc38a043508.jpg"
+         src="Assets/caixa 4.jpg"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio D
+         Metilfenidato  
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Analgésico para dores musculares.
+         Usado por: Pessoas com TDAH ou deficiência intelectual com déficit de atenção.
         </p>
-        <p class="font-bold text-lg mb-4">R$ 40,00</p>
+        <p class="font-bold text-lg mb-4">R$ 20,00</p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1448,16 +1478,21 @@
          alt="Imagem de embalagem de remédio com rótulo laranja e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/4042da37-d94d-4204-ab6e-013d63004f9c.jpg"
+         src="Assets/caixa5.webp"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio E
+         Betahistina
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Suplemento para saúde óssea.
+         Usado por pessoas com deficiência auditiva associada a zumbido ou doença de Ménière.
         </p>
-        <p class="font-bold text-lg mb-4">R$ 55,00</p>
+        <p class="font-bold text-lg mb-4">R$ 20,00
+
+
+
+          
+        </p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1473,16 +1508,16 @@
          alt="Imagem de embalagem de remédio com rótulo roxo e branco"
          class="rounded-md mb-4 object-cover w-full h-40"
          height="200"
-         src="https://storage.googleapis.com/a1aa/image/b36c6228-28e1-4fc2-475f-233ded79e3ae.jpg"
+         src="Assets/caixa6.jpg"
          width="300"
         />
         <h3 class="text-xl font-semibold text-green-900 dark:text-green-400 mb-2">
-         Remédio F
+         Baclofeno
         </h3>
         <p class="text-gray-800 dark:text-gray-300 mb-4">
-         Medicamento para controle de diabetes.
+         Usado por pessoas com deficiência física causada por paralisia cerebral, esclerose múltipla ou lesões medulares.
         </p>
-        <p class="font-bold text-lg mb-4">R$ 80,00</p>
+        <p class="font-bold text-lg mb-4">R$ 35,98</p>
         <button
          class="mt-auto bg-green-800 text-white py-2 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
         >
@@ -1496,6 +1531,10 @@
        id="catalogMessage"
       ></p>
      </section>
+
+
+
+     
 
      <!-- FAQ Chat Section -->
      <section
