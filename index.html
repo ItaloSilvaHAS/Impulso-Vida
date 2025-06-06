@@ -1116,14 +1116,18 @@
          </div>
          <div>
           <label class="block font-medium mb-1" for="examLocation">Local do Exame</label>
-          <input
+          <select
            class="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
            id="examLocation"
-           placeholder="Ex: Unidade Centro"
            required=""
-           type="text"
            aria-required="true"
-          />
+          >
+           <option disabled="" selected="" value="">
+            Selecione a cidade
+           </option>
+           <option value="São Paulo">São Paulo</option>
+           <option value="Belo Horizonte">Belo Horizonte</option>
+          </select>
          </div>
          <button
           class="bg-green-800 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-green-900 transition focus:outline-none focus:ring-2 focus:ring-green-700"
@@ -2263,7 +2267,7 @@
     examMessage.textContent = "";
     const date = examDateInput.value;
     const time = examTimeSelect.value;
-    const location = examLocationInput.value.trim();
+    const location = examLocationInput.value;
 
     if (!date || !time || !location) {
      examMessage.textContent = "Por favor, preencha todos os campos do agendamento.";
