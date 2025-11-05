@@ -21,7 +21,10 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     Handler = MyHTTPRequestHandler
     
-    with socketserver.TCPServer(("0.0.0.0", PORT), Handler) as httpd:
+    class ReusableTCPServer(socketserver.TCPServer):
+        allow_reuse_address = True
+    
+    with ReusableTCPServer(("0.0.0.0", PORT), Handler) as httpd:
         print(f"🚀 Servidor rodando em http://0.0.0.0:{PORT}")
         print(f"📁 Servindo arquivos de: {os.path.abspath(DIRECTORY)}")
         print("Pressione Ctrl+C para parar o servidor\n")
